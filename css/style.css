@@ -1,7 +1,7 @@
 /* Фиолетовый кристалл из изображения */
 .crystal-icon-img {
-    width: 16px;
-    height: 16px;
+    width: 36px;
+    height: 36px;
     display: inline-block;
     background-image: url('images/violetcrystal.png');
     background-size: contain;
@@ -607,8 +607,8 @@ body {
 
 /* Иконки кристаллов для сторис */
 .crystal-violet-icon {
-    width: 20px;
-    height: 20px;
+    width: 100px;
+    height: 100px;
     display: inline-block;
     background-image: url('../images/violetcrystal.png');
     background-size: contain;
@@ -619,8 +619,8 @@ body {
 }
 
 .crystal-orange-icon {
-    width: 20px;
-    height: 20px;
+    width: 36px;
+    height: 36px;
     display: inline-block;
     background-image: url('../images/orangecrystal.png');
     background-size: contain;
@@ -749,8 +749,8 @@ body {
 
 /* Иконки кристаллов для бонуса - увеличенные */
 .daily-bonus-reward-item .crystal-violet-icon {
-    width: 28px;
-    height: 28px;
+    width: 56px;
+    height: 56px;
     background-image: url('../images/violetcrystal.png');
     margin-right: 0;
 }

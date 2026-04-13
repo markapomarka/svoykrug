@@ -180,3 +180,40 @@
         font-size: 12px;
     }
 }
+
+/* ========== КРИСТАЛЛЫ ДЛЯ СТРАНИЦЫ ДОСТИЖЕНИЙ ========== */
+.crystal-violet-icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-image: url('../images/violetcrystal.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+    margin-left: 4px;
+}
+
+.crystal-reward {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-image: url('../images/violetcrystal.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+}
+
+/* Для бонусов в тексте */
+.crystal-icon-img {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-image: url('../images/violetcrystal.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+    margin: 0 2px;
+}
