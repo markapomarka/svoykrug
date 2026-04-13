@@ -1,0 +1,182 @@
+/* Страница достижений */
+.content-scroll {
+    padding: 20px;
+    padding-bottom: 80px;
+}
+
+/* Карточка прогресса */
+.progress-card {
+    background: white;
+    border-radius: 24px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(244, 29, 145, 0.1);
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+}
+
+.progress-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.progress-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: #F41D91;
+}
+
+.progress-bar-container {
+    height: 8px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #F41D91, #F2711E);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+.reward-text {
+    font-size: 14px;
+    color: #666;
+    text-align: right;
+}
+
+.crystal-reward {
+    color: #9C27B0;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* Список достижений */
+.achievements-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.achievement-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(244, 29, 145, 0.1);
+    transition: all 0.2s;
+}
+
+.achievement-item.completed {
+    background: linear-gradient(135deg, rgba(244, 29, 145, 0.08), rgba(242, 113, 30, 0.04));
+    border-left: 4px solid #F41D91;
+}
+
+.achievement-item.locked {
+    background: #fafafa;
+    opacity: 0.7;
+}
+
+.achievement-item.locked .achievement-icon i {
+    color: #ccc;
+}
+
+.achievement-item.locked .achievement-title {
+    color: #999;
+}
+
+.achievement-item.locked .achievement-description {
+    color: #bbb;
+}
+
+.achievement-icon i {
+    font-size: 40px;
+    color: #F41D91;
+}
+
+.achievement-content {
+    flex: 1;
+}
+
+.achievement-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.achievement-description {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.achievement-check i,
+.achievement-lock i {
+    font-size: 28px;
+}
+
+.achievement-check i {
+    color: #F41D91;
+}
+
+.achievement-lock i {
+    color: #ccc;
+}
+
+/* Новые достижения */
+.new-achievements-text {
+    text-align: center;
+    font-size: 14px;
+    color: #F41D91;
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(244, 29, 145, 0.1);
+}
+
+/* Кнопка назад */
+.back-button {
+    cursor: pointer;
+    font-size: 24px;
+    color: #F41D91;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.back-button:active {
+    transform: scale(0.9);
+}
+
+/* Адаптация */
+@media (max-width: 480px) {
+    .achievement-icon i {
+        font-size: 32px;
+    }
+    
+    .achievement-title {
+        font-size: 16px;
+    }
+    
+    .achievement-description {
+        font-size: 12px;
+    }
+}

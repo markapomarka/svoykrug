@@ -1,0 +1,362 @@
+/* Страница сканирования QR-кода */
+.content-scroll {
+    padding: 20px;
+    padding-bottom: 40px;
+}
+
+/* Информация о ресторане */
+.restaurant-info {
+    background: white;
+    border-radius: 24px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(244, 29, 145, 0.1);
+}
+
+.restaurant-address, .restaurant-cuisine {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.restaurant-address i, .restaurant-cuisine i {
+    color: #F41D91;
+    font-size: 20px;
+}
+
+.restaurant-description {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #f0f0f0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+}
+
+/* Сканер QR-кода */
+.scanner-section {
+    background: white;
+    border-radius: 24px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(244, 29, 145, 0.1);
+}
+
+.scanner-section h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+}
+
+.scanner-section p {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.scanner-preview {
+    background: #1a1a1a;
+    border-radius: 20px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.scanner-placeholder {
+    text-align: center;
+    color: #888;
+}
+
+.scanner-placeholder i {
+    font-size: 64px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.scanner-placeholder span {
+    font-size: 14px;
+}
+
+.scanner-frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    border: 2px solid #F41D91;
+    border-radius: 16px;
+    box-shadow: 0 0 0 999px rgba(0, 0, 0, 0.7);
+}
+
+/* Активное сканирование */
+.scanner-preview.active {
+    background: #000;
+}
+
+.scanner-preview.active .scanner-placeholder {
+    display: none;
+}
+
+.scanner-preview.active .scanner-frame {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        border-color: #F41D91;
+        box-shadow: 0 0 0 0 rgba(244, 29, 145, 0.4);
+    }
+    50% {
+        border-color: #F2711E;
+        box-shadow: 0 0 0 10px rgba(244, 29, 145, 0);
+    }
+    100% {
+        border-color: #F41D91;
+        box-shadow: 0 0 0 0 rgba(244, 29, 145, 0);
+    }
+}
+
+/* Кнопки */
+.scanner-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.scan-btn {
+    background: linear-gradient(135deg, #F41D91, #F2711E);
+    border: none;
+    padding: 14px;
+    border-radius: 60px;
+    color: white;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.scan-btn:active {
+    transform: scale(0.98);
+}
+
+.upload-divider {
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    position: relative;
+}
+
+.upload-divider::before,
+.upload-divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 45%;
+    height: 1px;
+    background: #e0e0e0;
+}
+
+.upload-divider::before {
+    left: 0;
+}
+
+.upload-divider::after {
+    right: 0;
+}
+
+.upload-btn {
+    background: white;
+    border: 1px solid #F41D91;
+    padding: 14px;
+    border-radius: 60px;
+    color: #F41D91;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.upload-btn:active {
+    transform: scale(0.98);
+    background: rgba(244, 29, 145, 0.05);
+}
+
+/* Модальное окно загрузки */
+.loading-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1002;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-modal.show {
+    display: flex;
+}
+
+.loading-modal-content {
+    background: white;
+    border-radius: 28px;
+    padding: 32px;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f0f0f0;
+    border-top-color: #F41D91;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 16px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Модальное окно успеха */
+.success-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1003;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-modal.show {
+    display: flex;
+}
+
+.success-modal-content {
+    background: white;
+    border-radius: 28px;
+    padding: 32px 24px;
+    text-align: center;
+    width: 280px;
+    animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.success-icon i {
+    font-size: 64px;
+    color: #4CAF50;
+    margin-bottom: 16px;
+}
+
+.success-modal-content h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+.ok-btn {
+    background: linear-gradient(135deg, #F41D91, #F2711E);
+    border: none;
+    padding: 12px 32px;
+    border-radius: 40px;
+    color: white;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.ok-btn:active {
+    transform: scale(0.95);
+}
+
+/* Блок успешного выполнения */
+.completed-block {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(76, 175, 80, 0.05));
+    border: 1px solid #4CAF50;
+    border-radius: 20px;
+    padding: 24px;
+    text-align: center;
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease;
+}
+
+.completed-block .success-icon {
+    font-size: 48px;
+    color: #4CAF50;
+    margin-bottom: 12px;
+}
+
+.completed-block h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #4CAF50;
+    margin-bottom: 8px;
+}
+
+.completed-block p {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Кнопка назад */
+.back-button {
+    cursor: pointer;
+    font-size: 24px;
+    color: #F41D91;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.back-button:active {
+    transform: scale(0.9);
+}

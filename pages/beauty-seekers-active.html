@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Искатели красоты - СвойКруг</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/challenge-detail.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="back-button" id="backButton">
+                <i class="material-symbols-outlined">arrow_back</i>
+            </div>
+            <h1 class="gradient-title">Искатели красоты</h1>
+            <div class="header-placeholder"></div>
+        </header>
+
+        <main class="content-scroll">
+            <div class="challenge-detail-header pink-purple">
+                <h2>Искатели красоты</h2>
+                <p>Погрузись в атмосферу творческого Петербурга и открой уникальные стороны Брусницына Лофта в нашем квесте «Искатели красоты». Отправься в увлекательную прогулку по основным локациям комплекса: попробуй местное кофе, посмотри работы handmade-мастеров, займись созданием керамики и сделай яркие снимки в фотозонах!</p>
+            </div>
+
+            <div class="time-card">
+                <div class="time-icon">
+                    <i class="material-symbols-outlined">schedule</i>
+                </div>
+                <div class="time-info">
+                    <span class="time-label">Осталось времени</span>
+                    <span class="time-value" id="countdown">1 день 10 часов 5 минут</span>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-header">
+                    <span>Процесс: <span class="progress-tasks" id="progressTasks">0/5</span></span>
+                    <span class="progress-percent" id="progressPercent">0%</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="rewards-section">
+                <div class="rewards-header">
+                    <i class="material-symbols-outlined rewards-trophy-icon">emoji_events</i>
+                    <h3>Награды</h3>
+                </div>
+                <div class="rewards-list">
+                    <div class="reward-item">
+                        <i class="material-symbols-outlined">local_offer</i>
+                        <span>Скидка 15% в мастерской "Талант"</span>
+                    </div>
+                    <div class="reward-item">
+                        <i class="material-symbols-outlined">stars</i>
+                        <span>Достижение "Исследователь"</span>
+                    </div>
+                    <div class="reward-item">
+                        <i class="material-symbols-outlined">diamond</i>
+                        <span class="reward-points">1000 <span class="crystal-large-img"></span></span>
+                </div>
+            </div>
+
+            <div class="map-container" id="mapContainer">
+                <div class="map-section" id="mapSection">
+                    <h3>Мои задания</h3>
+<div class="journey-map">
+    <svg class="map-svg" viewBox="0 0 350 480" preserveAspectRatio="xMidYMid meet">
+        <line id="line1" x1="175" y1="45" x2="80" y2="135" stroke="#ddd" stroke-width="2.5" stroke-dasharray="6,6" />
+        <line id="line2" x1="80" y1="135" x2="270" y2="230" stroke="#ddd" stroke-width="2.5" stroke-dasharray="6,6" />
+        <line id="line3" x1="270" y1="230" x2="100" y2="335" stroke="#ddd" stroke-width="2.5" stroke-dasharray="6,6" />
+        <line id="line4" x1="100" y1="335" x2="250" y2="430" stroke="#ddd" stroke-width="2.5" stroke-dasharray="6,6" />
+        
+        <!-- Точка 1 -->
+        <g class="map-node" id="node1" onclick="showTaskDetail(1)" style="cursor: pointer;">
+            <circle cx="175" cy="45" r="28" fill="#ddd" stroke="#fff" stroke-width="2.5" />
+            <text x="175" y="52" text-anchor="middle" fill="#999" font-size="15" font-weight="bold">1</text>
+            <text x="175" y="88" text-anchor="middle" fill="#999" font-size="12">Арт-встреча</text>
+        </g>
+        
+        <!-- Точка 2 -->
+        <g class="map-node" id="node2" onclick="showTaskDetail(2)" style="cursor: pointer;">
+            <circle cx="80" cy="135" r="28" fill="#ddd" stroke="#fff" stroke-width="2.5" />
+            <text x="80" y="142" text-anchor="middle" fill="#999" font-size="15" font-weight="bold">2</text>
+            <text x="80" y="178" text-anchor="middle" fill="#999" font-size="12">Кофе-брейк</text>
+        </g>
+        
+        <!-- Точка 3 -->
+        <g class="map-node" id="node3" onclick="showTaskDetail(3)" style="cursor: pointer;">
+            <circle cx="270" cy="230" r="28" fill="#ddd" stroke="#fff" stroke-width="2.5" />
+            <text x="270" y="237" text-anchor="middle" fill="#999" font-size="15" font-weight="bold">3</text>
+            <text x="270" y="273" text-anchor="middle" fill="#999" font-size="12">Мастера рукоделия</text>
+        </g>
+        
+        <!-- Точка 4 -->
+        <g class="map-node" id="node4" onclick="showTaskDetail(4)" style="cursor: pointer;">
+            <circle cx="100" cy="335" r="28" fill="#ddd" stroke="#fff" stroke-width="2.5" />
+            <text x="100" y="342" text-anchor="middle" fill="#999" font-size="15" font-weight="bold">4</text>
+            <text x="100" y="378" text-anchor="middle" fill="#999" font-size="12">Творческая студия</text>
+        </g>
+        
+        <!-- Точка 5 -->
+        <g class="map-node" id="node5" onclick="showTaskDetail(5)" style="cursor: pointer;">
+            <circle cx="250" cy="430" r="28" fill="#ddd" stroke="#fff" stroke-width="2.5" />
+            <text x="250" y="437" text-anchor="middle" fill="#999" font-size="15" font-weight="bold">5</text>
+            <text x="250" y="473" text-anchor="middle" fill="#999" font-size="12">Фото-флешмоб</text>
+        </g>
+    </svg>
+</div>
+                    </div>
+                </div>
+                
+                <div class="fog-overlay" id="fogOverlay" style="display: none;">
+                    <div class="congrats-overlay">
+                        <div class="congrats-icon">🎉</div>
+                        <h3>Поздравляем!</h3>
+                        <p>Вы завершили квест!</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="participate-fixed" id="actionButton">
+            <button class="participating-btn" id="actionBtn" disabled>
+                <i class="material-symbols-outlined">check_circle</i>
+                Вы участвуете
+            </button>
+        </div>
+
+        <div class="reward-modal" id="rewardModal">
+            <div class="reward-modal-content">
+                <div class="reward-modal-close" onclick="closeRewardModal()">✕</div>
+                <div class="reward-modal-icon">
+                    <i class="material-symbols-outlined">emoji_events</i>
+                </div>
+                <h3>Награды успешно добавлены в Профиль!</h3>
+                <button class="reward-modal-btn" onclick="goToProfile()">Посмотреть профиль</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let timeRemaining = { days: 1, hours: 10, minutes: 5 };
+        let isRewardClaimed = localStorage.getItem('beauty_challenge_reward_claimed') === 'true';
+
+        function checkParticipation() {
+            const hasJoined = localStorage.getItem('beauty_challenge_joined') === 'true';
+            const hasProgress = localStorage.getItem('beauty_challenge_progress') !== null;
+            
+            if (!hasJoined && !hasProgress) {
+                window.location.href = 'beauty-seekers-detail.html';
+                return false;
+            }
+            return true;
+        }
+
+        function updateCountdown() {
+            if (timeRemaining.days === 0 && timeRemaining.hours === 0 && timeRemaining.minutes === 0) {
+                document.getElementById('countdown').textContent = "Челлендж завершён";
+                return;
+            }
+            let countdownText = '';
+            if (timeRemaining.days > 0) countdownText += `${timeRemaining.days} дн. `;
+            if (timeRemaining.hours > 0 || timeRemaining.days > 0) countdownText += `${timeRemaining.hours} ч. `;
+            countdownText += `${timeRemaining.minutes} мин.`;
+            document.getElementById('countdown').textContent = countdownText;
+            if (timeRemaining.minutes > 0) {
+                timeRemaining.minutes--;
+            } else {
+                timeRemaining.minutes = 59;
+                if (timeRemaining.hours > 0) {
+                    timeRemaining.hours--;
+                } else {
+                    timeRemaining.hours = 23;
+                    if (timeRemaining.days > 0) timeRemaining.days--;
+                }
+            }
+        }
+
+        function getCompletedCount() {
+            let count = 0;
+            for (let i = 1; i <= 5; i++) {
+                if (localStorage.getItem(`beauty_task_${i}_completed`) === 'true') count++;
+            }
+            return count;
+        }
+
+        function updateProgress() {
+            const completedCount = getCompletedCount();
+            const progressPercent = (completedCount / 5) * 100;
+            document.getElementById('progressTasks').textContent = `${completedCount}/5`;
+            document.getElementById('progressPercent').textContent = `${Math.round(progressPercent)}%`;
+            const progressFill = document.querySelector('.progress-fill');
+            if (progressFill) progressFill.style.width = `${progressPercent}%`;
+            localStorage.setItem('beauty_challenge_progress', JSON.stringify({ completedTasks: completedCount, totalTasks: 5 }));
+            
+            if (completedCount === 5) {
+                showCompletedState();
+            } else {
+                updateMap();
+            }
+        }
+
+        function updateMap() {
+            const completedCount = getCompletedCount();
+            
+            for (let i = 1; i <= 5; i++) {
+                const circle = document.querySelector(`#node${i} circle`);
+                const text = document.querySelector(`#node${i} text:first-of-type`);
+                const label = document.querySelector(`#node${i} text:last-of-type`);
+                const isCompleted = localStorage.getItem(`beauty_task_${i}_completed`) === 'true';
+                
+                if (isCompleted) {
+                    circle.setAttribute('fill', '#4CAF50');
+                    text.setAttribute('fill', 'white');
+                    if (label) label.setAttribute('fill', '#4CAF50');
+                } else if (i === completedCount + 1) {
+                    circle.setAttribute('fill', '#F41D91');
+                    text.setAttribute('fill', 'white');
+                    if (label) label.setAttribute('fill', '#F41D91');
+                } else {
+                    circle.setAttribute('fill', '#ddd');
+                    text.setAttribute('fill', '#999');
+                    if (label) label.setAttribute('fill', '#999');
+                }
+            }
+            
+            for (let i = 1; i <= 4; i++) {
+                const line = document.getElementById(`line${i}`);
+                if (i <= completedCount) {
+                    line.setAttribute('stroke', '#4CAF50');
+                    line.setAttribute('stroke-dasharray', 'none');
+                } else {
+                    line.setAttribute('stroke', '#ddd');
+                    line.setAttribute('stroke-dasharray', '6,6');
+                }
+            }
+        }
+
+        function showCompletedState() {
+            document.getElementById('fogOverlay').style.display = 'flex';
+            
+            const actionBtn = document.getElementById('actionBtn');
+            if (isRewardClaimed) {
+                actionBtn.innerHTML = '<i class="material-symbols-outlined">check_circle</i> Награда получена';
+                actionBtn.disabled = true;
+                actionBtn.style.opacity = '0.6';
+            } else {
+                actionBtn.innerHTML = '<i class="material-symbols-outlined">card_giftcard</i> Забрать награду';
+                actionBtn.disabled = false;
+                actionBtn.style.opacity = '1';
+                actionBtn.style.background = 'linear-gradient(135deg, #F41D91, #F2711E)';
+                actionBtn.onclick = claimReward;
+            }
+        }
+
+        function claimReward() {
+            const modal = document.getElementById('rewardModal');
+            modal.classList.add('show');
+        }
+
+        function closeRewardModal() {
+            const modal = document.getElementById('rewardModal');
+            modal.classList.remove('show');
+            
+            isRewardClaimed = true;
+            localStorage.setItem('beauty_challenge_reward_claimed', 'true');
+            
+            // Отмечаем челлендж как завершенный в localStorage
+            localStorage.setItem('beauty_challenge_completed', 'true');
+            
+            const actionBtn = document.getElementById('actionBtn');
+            actionBtn.innerHTML = '<i class="material-symbols-outlined">check_circle</i> Награда получена';
+            actionBtn.disabled = true;
+            actionBtn.style.opacity = '0.6';
+            actionBtn.onclick = null;
+            
+            // Переходим на страницу "Мои челленджи"
+            window.location.href = 'challenges.html?tab=my';
+        }
+
+        function goToProfile() {
+            // Сохраняем, что награда получена
+            isRewardClaimed = true;
+            localStorage.setItem('beauty_challenge_reward_claimed', 'true');
+            localStorage.setItem('beauty_challenge_completed', 'true');
+            
+            // Закрываем модальное окно
+            const modal = document.getElementById('rewardModal');
+            modal.classList.remove('show');
+            
+            // Переходим в профиль
+            window.location.href = 'profile.html';
+        }
+
+        function showTaskDetail(taskId) {
+            const completedCount = getCompletedCount();
+            const isCompleted = localStorage.getItem(`beauty_task_${taskId}_completed`) === 'true';
+            
+            if (isCompleted) {
+                alert(`✅ Задание "${getTaskName(taskId)}" уже выполнено!`);
+            } else if (taskId === completedCount + 1) {
+                window.location.href = `beauty-task-scan.html?id=${taskId}`;
+            } else {
+                alert(`🔒 Задание "${getTaskName(taskId)}" заблокировано. Выполните предыдущее задание!`);
+            }
+        }
+
+        function getTaskName(taskId) {
+            const names = {
+                1: 'Арт-встреча',
+                2: 'Кофе-брейк',
+                3: 'Мастера рукоделия',
+                4: 'Творческая студия',
+                5: 'Фото-флешмоб'
+            };
+            return names[taskId];
+        }
+
+        const backButton = document.getElementById('backButton');
+        if (backButton) {
+            backButton.onclick = function() {
+                window.location.href = 'challenges.html?tab=my';
+            };
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!checkParticipation()) return;
+            updateCountdown();
+            updateProgress();
+            setInterval(updateCountdown, 60000);
+            
+            window.addEventListener('pageshow', () => {
+                updateProgress();
+            });
+        });
+    </script>
+</body>
+</html>

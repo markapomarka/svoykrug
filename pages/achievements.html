@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Достижения - СвойКруг</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/achievements.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="back-button" onclick="history.back()">
+                <i class="material-symbols-outlined">arrow_back</i>
+            </div>
+            <h1 class="gradient-title">Достижения</h1>
+            <div class="header-placeholder"></div>
+        </header>
+
+        <main class="content-scroll">
+            <!-- Прогресс -->
+            <div class="progress-card">
+                <div class="progress-header">
+                    <span class="progress-label">Прогресс:</span>
+                    <span class="progress-value" id="progressValue">3/6</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-fill" id="progressFill" style="width: 50%"></div>
+                </div>
+                <div class="reward-text">Получите 300 <span class="crystal-icon-img"></span></div>
+            </div>
+
+            <!-- Список достижений -->
+            <div class="achievements-list">
+                <!-- Первый шаг -->
+                <div class="achievement-item completed">
+                    <div class="achievement-icon">
+                        <i class="material-symbols-outlined">stars</i>
+                    </div>
+                    <div class="achievement-content">
+                        <div class="achievement-title">Первый шаг</div>
+                        <div class="achievement-description">
+                            Получено за:<br>
+                            Завершение регистрации
+                        </div>
+                    </div>
+                    <div class="achievement-check">
+                        <i class="material-symbols-outlined">check_circle</i>
+                    </div>
+                </div>
+
+                <!-- Социальная бабочка -->
+                <div class="achievement-item completed">
+                    <div class="achievement-icon">
+                        <i class="material-symbols-outlined">group</i>
+                    </div>
+                    <div class="achievement-content">
+                        <div class="achievement-title">Социальная бабочка</div>
+                        <div class="achievement-description">
+                            Получено за:<br>
+                            Приглашение 5 друзей в приложение
+                        </div>
+                    </div>
+                    <div class="achievement-check">
+                        <i class="material-symbols-outlined">check_circle</i>
+                    </div>
+                </div>
+
+                <!-- Исследователь -->
+                <div class="achievement-item completed">
+                    <div class="achievement-icon">
+                        <i class="material-symbols-outlined">emoji_events</i>
+                    </div>
+                    <div class="achievement-content">
+                        <div class="achievement-title">Исследователь</div>
+                        <div class="achievement-description">
+                            Получено за:<br>
+                            Завершение челленджа "Искатели красоты"
+                        </div>
+                    </div>
+                    <div class="achievement-check">
+                        <i class="material-symbols-outlined">check_circle</i>
+                    </div>
+                </div>
+
+                <!-- Гурман (НЕ получен - заблокирован) -->
+                <div class="achievement-item locked">
+                    <div class="achievement-icon">
+                        <i class="material-symbols-outlined">restaurant</i>
+                    </div>
+                    <div class="achievement-content">
+                        <div class="achievement-title">Гурман</div>
+                        <div class="achievement-description">
+                            Получите за:<br>
+                            Завершение челленджа "Гастрономический тур"
+                        </div>
+                    </div>
+                    <div class="achievement-lock">
+                        <i class="material-symbols-outlined">lock</i>
+                    </div>
+                </div>
+
+                <!-- Самый быстрый -->
+                <div class="achievement-item locked">
+                    <div class="achievement-icon">
+                        <i class="material-symbols-outlined">bolt</i>
+                    </div>
+                    <div class="achievement-content">
+                        <div class="achievement-title">Самый быстрый</div>
+                        <div class="achievement-description">
+                            Получите за:<br>
+                            Завершение челленджа самым первым
+                        </div>
+                    </div>
+                    <div class="achievement-lock">
+                        <i class="material-symbols-outlined">lock</i>
+                    </div>
+                </div>
+
+                <!-- Скрытый алмаз -->
+                <div class="achievement-item locked">
+                    <div class="achievement-icon">
+                        <i class="material-symbols-outlined">diamond</i>
+                    </div>
+                    <div class="achievement-content">
+                        <div class="achievement-title">Скрытый алмаз</div>
+                        <div class="achievement-description">
+                            Получите за:<br>
+                            Выиграйте скидку в "Колесе удачи"
+                        </div>
+                    </div>
+                    <div class="achievement-lock">
+                        <i class="material-symbols-outlined">lock</i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="new-achievements-text">
+                Новые достижения уже на подходе...
+            </div>
+        </main>
+
+        <footer class="bottom-nav-icons">
+            <div class="nav-icon-item" onclick="toggleSideMenu()">
+                <i class="material-symbols-outlined">menu</i>
+            </div>
+            <div class="nav-icon-item" onclick="window.location.href='../index.html'">
+                <i class="material-symbols-outlined">home</i>
+            </div>
+            <div class="nav-icon-item" onclick="alert('🎫 Раздел билетов в разработке')">
+                <i class="material-symbols-outlined">confirmation_number</i>
+            </div>
+            <div class="nav-icon-item" onclick="alert('❤️ Избранное в разработке')">
+                <i class="material-symbols-outlined">favorite</i>
+            </div>
+            <div class="nav-icon-item" onclick="window.location.href='profile.html'">
+                <i class="material-symbols-outlined">person</i>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Обновление прогресса (3/6, 50%)
+        function updateProgress() {
+            const completedCount = 3;
+            const totalCount = 6;
+            const progressPercent = (completedCount / totalCount) * 100;
+            
+            document.getElementById('progressValue').textContent = `${completedCount}/${totalCount}`;
+            document.getElementById('progressFill').style.width = `${progressPercent}%`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateProgress();
+        });
+    </script>
+</body>
+</html>

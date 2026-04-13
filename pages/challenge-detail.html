@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Гастрономический тур - СвойКруг</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/challenge-detail.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="back-button" onclick="history.back()">
+                <i class="material-symbols-outlined">arrow_back</i>
+            </div>
+            <h1 class="gradient-title">Гастрономический тур</h1>
+            <div class="header-placeholder"></div>
+        </header>
+
+        <main class="content-scroll">
+            <div class="challenge-detail-header orange-purple">
+                <h2>Гастрономический тур</h2>
+                <p>Погрузись в гастрономическое путешествие по лучшим заведениям креативных кластеров города! Насладитесь уникальной атмосферой и вкуснейшими блюдами 5 необычных ресторанов и кафе. Открой новые вкусы и почувствуй себя настоящим гурманом!</p>
+            </div>
+
+            <div class="time-card">
+                <div class="time-icon">
+                    <i class="material-symbols-outlined">schedule</i>
+                </div>
+                <div class="time-info">
+                    <span class="time-label">Осталось времени</span>
+                    <span class="time-value" id="countdown">20 дней 6 часов 15 минут</span>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-header">
+                    <span>Прогресс <span class="progress-tasks" id="progressTasks">0/5</span></span>
+                    <span class="progress-percent" id="progressPercent">0%</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="rewards-section">
+                <div class="rewards-header">
+                    <i class="material-symbols-outlined rewards-trophy-icon">emoji_events</i>
+                    <h3>Награды</h3>
+                </div>
+                <div class="rewards-list">
+                    <div class="reward-item">
+                        <i class="material-symbols-outlined">local_offer</i>
+                        <span>Скидка 15% в ресторане "Осень"</span>
+                    </div>
+                    <div class="reward-item">
+                        <i class="material-symbols-outlined">stars</i>
+                        <span>Достижение "Гурман"</span>
+                    </div>
+                    <div class="reward-item">
+                        <i class="material-symbols-outlined">diamond</i>
+                        <span class="reward-points">500 <span class="crystal-large-img"></span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="how-to-participate">
+                <h3>Как участвовать:</h3>
+                <div class="steps-list">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-text">Посещайте локации указанные в заданиях</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-text">Сканируйте QR-код из чека заведения внутри задания</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-text">Копите баллы и получайте бонусы от партнеров</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="participate-fixed">
+            <button class="participate-btn" onclick="participateInChallenge()">
+                Участвовать
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let timeRemaining = { days: 20, hours: 6, minutes: 15 };
+
+        function updateCountdown() {
+            if (timeRemaining.days === 0 && timeRemaining.hours === 0 && timeRemaining.minutes === 0) {
+                document.getElementById('countdown').textContent = "Челлендж завершён";
+                return;
+            }
+            let countdownText = '';
+            if (timeRemaining.days > 0) countdownText += `${timeRemaining.days} дн. `;
+            if (timeRemaining.hours > 0 || timeRemaining.days > 0) countdownText += `${timeRemaining.hours} ч. `;
+            countdownText += `${timeRemaining.minutes} мин.`;
+            document.getElementById('countdown').textContent = countdownText;
+            if (timeRemaining.minutes > 0) {
+                timeRemaining.minutes--;
+            } else {
+                timeRemaining.minutes = 59;
+                if (timeRemaining.hours > 0) {
+                    timeRemaining.hours--;
+                } else {
+                    timeRemaining.hours = 23;
+                    if (timeRemaining.days > 0) timeRemaining.days--;
+                }
+            }
+        }
+
+        function participateInChallenge() {
+            localStorage.setItem('gastro_challenge_joined', 'true');
+            localStorage.setItem('gastro_challenge_progress', JSON.stringify({ completedTasks: 0, totalTasks: 5 }));
+            window.location.href = 'challenge-active.html';
+        }
+
+        // Проверяем, не участвует ли уже пользователь
+        function checkAlreadyParticipating() {
+            const hasJoined = localStorage.getItem('gastro_challenge_joined') === 'true';
+            const hasProgress = localStorage.getItem('gastro_challenge_progress') !== null;
+            
+            if (hasJoined || hasProgress) {
+                const participateBtn = document.querySelector('.participate-btn');
+                if (participateBtn) {
+                    participateBtn.textContent = 'Продолжить';
+                    participateBtn.onclick = () => {
+                        window.location.href = 'challenge-active.html';
+                    };
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCountdown();
+            setInterval(updateCountdown, 60000);
+            checkAlreadyParticipating();
+        });
+    </script>
+</body>
+</html>

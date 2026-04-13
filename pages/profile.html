@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Профиль - СвойКруг</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Шапка -->
+        <header class="main-header">
+            <div class="back-button" onclick="history.back()">
+                <i class="material-symbols-outlined">arrow_back</i>
+            </div>
+            <h1 class="gradient-title">Профиль</h1>
+            <div class="settings-icon" onclick="openSettings()">
+                <i class="material-symbols-outlined">settings</i>
+            </div>
+        </header>
+
+        <!-- Контент -->
+        <main class="content-scroll">
+            <!-- Единый блок профиля -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <span class="avatar-initials">ММ</span>
+                    </div>
+                    <div class="profile-info">
+                        <h2 class="profile-name">Мария Малинина</h2>
+                        <div class="profile-level-badge">Уровень 5</div>
+                    </div>
+                </div>
+                <div class="level-progress">
+                    <div class="level-progress-header">
+                        <span>Осталось до 6 уровня</span>
+                        <span>500 / 1200 <span class="crystal-small-img"></span></span>
+                    </div>
+                    <div class="level-progress-bar">
+                        <div class="level-progress-fill" style="width: 42%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Достижения -->
+            <div class="achievements-section">
+                <div class="section-header">
+                    <h3>Достижения</h3>
+                    <span class="section-arrow" onclick="showAllAchievements()">→</span>
+                </div>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="material-symbols-outlined">stars</i>
+                        </div>
+                        <div class="achievement-name">Первый шаг</div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="material-symbols-outlined">group</i>
+                        </div>
+                        <div class="achievement-name">Социальная бабочка</div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="material-symbols-outlined">emoji_events</i>
+                        </div>
+                        <div class="achievement-name">Исследователь</div>
+                    </div>
+                    <div class="achievement-card locked">
+                        <div class="achievement-icon">
+                            <i class="material-symbols-outlined">restaurant</i>
+                        </div>
+                        <div class="achievement-name">Гурман</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Пригласи друзей -->
+            <div class="invite-section">
+                <h3>Пригласи друзей</h3>
+                <p>Получи 300 <span class="crystal-icon-img"></span> за каждого друга</p>
+                <div class="invite-buttons">
+                    <button class="invite-btn copy-btn" onclick="copyLink()">
+                        <i class="material-symbols-outlined">content_copy</i>
+                        Скопировать ссылку
+                    </button>
+                    <button class="invite-btn qr-btn" onclick="showQrModal()">
+                        <i class="material-symbols-outlined">qr_code</i>
+                        QR-код
+                    </button>
+                </div>
+            </div>
+
+            <!-- Награды -->
+            <div class="rewards-section">
+                <div class="section-header">
+                    <i class="material-symbols-outlined rewards-header-icon">emoji_events</i>
+                    <h3>Награды</h3>
+                </div>
+                <div class="rewards-list">
+                    <div class="reward-card">
+                        <div class="reward-info">
+                            <div class="reward-icon">
+                                <i class="material-symbols-outlined">local_offer</i>
+                            </div>
+                            <div class="reward-details">
+                                <div class="reward-title">Скидка 15% на выставку "Цой"</div>
+                                <div class="reward-date">До 25.03.2026</div>
+                            </div>
+                        </div>
+                        <button class="reward-action-btn" onclick="applyReward(1)">
+                            Применить
+                        </button>
+                    </div>
+                    
+                    <div class="reward-card">
+                        <div class="reward-info">
+                            <div class="reward-icon">
+                                <i class="material-symbols-outlined">restaurant</i>
+                            </div>
+                            <div class="reward-details">
+                                <div class="reward-title">Бесплатный десерт в "Море"</div>
+                                <div class="reward-date">До 15.03.2026</div>
+                            </div>
+                        </div>
+                        <button class="reward-action-btn" onclick="applyReward(2)">
+                            Применить
+                        </button>
+                    </div>
+                    
+                    <div class="reward-card used">
+                        <div class="reward-info">
+                            <div class="reward-icon">
+                                <i class="material-symbols-outlined">movie</i>
+                            </div>
+                            <div class="reward-details">
+                                <div class="reward-title">Билет в кино</div>
+                                <div class="reward-date">До 11.03.2026</div>
+                            </div>
+                        </div>
+                        <button class="reward-action-btn used-btn" disabled>
+                            Использована
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Как заработать награды -->
+            <div class="earn-section">
+                <h3>Как заработать награды</h3>
+                <div class="earn-list">
+                    <div class="earn-item" onclick="goToChallenges()">
+                        <span>Участвовать в челленджах</span>
+                        <i class="material-symbols-outlined earn-arrow">chevron_right</i>
+                    </div>
+                    <div class="earn-item" onclick="goToWheel()">
+                        <span>Крутить колесо удачи</span>
+                        <i class="material-symbols-outlined earn-arrow">chevron_right</i>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Модальное окно QR-кода для приглашения -->
+        <div class="qr-modal" id="qrModal">
+            <div class="qr-modal-content">
+                <div class="qr-modal-close" onclick="closeQrModal()">✕</div>
+                <div class="qr-code-container">
+                    <div class="qr-code">
+                        <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="200" height="200" fill="white"/>
+                            <rect x="20" y="20" width="40" height="40" fill="black"/>
+                            <rect x="80" y="20" width="40" height="40" fill="black"/>
+                            <rect x="140" y="20" width="40" height="40" fill="black"/>
+                            <rect x="20" y="80" width="40" height="40" fill="black"/>
+                            <rect x="140" y="80" width="40" height="40" fill="black"/>
+                            <rect x="20" y="140" width="40" height="40" fill="black"/>
+                            <rect x="80" y="140" width="40" height="40" fill="black"/>
+                            <rect x="140" y="140" width="40" height="40" fill="black"/>
+                            <rect x="80" y="80" width="40" height="40" fill="white"/>
+                        </svg>
+                    </div>
+                    <p class="qr-text">Отсканируйте QR-код, чтобы пригласить друга</p>
+                    <p class="qr-link">https://svoykrug.ru/invite/12345</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Нижняя навигация -->
+        <footer class="bottom-nav-icons">
+            <div class="nav-icon-item" onclick="toggleSideMenu()">
+                <i class="material-symbols-outlined">menu</i>
+            </div>
+            <div class="nav-icon-item" onclick="window.location.href='../index.html'">
+                <i class="material-symbols-outlined">home</i>
+            </div>
+            <div class="nav-icon-item" onclick="alert('🎫 Раздел билетов в разработке')">
+                <i class="material-symbols-outlined">confirmation_number</i>
+            </div>
+            <div class="nav-icon-item" onclick="alert('❤️ Избранное в разработке')">
+                <i class="material-symbols-outlined">favorite</i>
+            </div>
+            <div class="nav-icon-item active" onclick="window.location.href='profile.html'">
+                <i class="material-symbols-outlined">person</i>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../scripts/profile.js"></script>
+</body>
+</html>
+
+<script>
+    // Подсветка активного пункта меню
+    document.addEventListener('DOMContentLoaded', () => {
+        const currentPage = window.location.pathname.split('/').pop();
+        const navItems = document.querySelectorAll('.nav-icon-item');
+        
+        navItems.forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        if (currentPage === 'profile.html') {
+            const profileNav = document.querySelector('.nav-icon-item:last-child');
+            if (profileNav) profileNav.classList.add('active');
+        } else if (currentPage === 'index.html' || currentPage === '') {
+            const homeNav = document.querySelector('.nav-icon-item:nth-child(2)');
+            if (homeNav) homeNav.classList.add('active');
+        } else if (currentPage === 'challenges.html') {
+            const challengesNav = document.querySelector('.nav-icon-item:nth-child(1)');
+            if (challengesNav) challengesNav.classList.add('active');
+        }
+    });
+</script>

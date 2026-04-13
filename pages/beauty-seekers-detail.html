@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Искатели красоты - СвойКруг</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/challenge-detail.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="back-button" onclick="history.back()">
+                <i class="material-symbols-outlined">arrow_back</i>
+            </div>
+            <h1 class="gradient-title">Искатели красоты</h1>
+            <div class="header-placeholder"></div>
+        </header>
+
+        <main class="content-scroll">
+            <div class="challenge-detail-header pink-purple">
+                <h2>Искатели красоты</h2>
+                <p>Погрузись в атмосферу творческого Петербурга и открой уникальные стороны Брусницына Лофта в нашем квесте «Искатели красоты». Отправься в увлекательную прогулку по основным локациям комплекса: попробуй местное кофе, посмотри работы handmade-мастеров, займись созданием керамики и сделай яркие снимки в фотозонах!</p>
+            </div>
+
+            <div class="time-card">
+                <div class="time-icon">
+                    <i class="material-symbols-outlined">schedule</i>
+                </div>
+                <div class="time-info">
+                    <span class="time-label">Осталось времени</span>
+                    <span class="time-value" id="countdown">1 день 10 часов 5 минут</span>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-header">
+                    <span>Процесс: <span class="progress-tasks" id="progressTasks">0/5</span></span>
+                    <span class="progress-percent" id="progressPercent">0%</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="rewards-section">
+                <div class="rewards-header">
+                    <i class="material-symbols-outlined rewards-trophy-icon">emoji_events</i>
+                    <h3>Награды</h3>
+                </div>
+                <div class="rewards-list">
+                    <div class="reward-item">
+                        <i class="material-symbols-outlined">local_offer</i>
+                        <span>Скидка 15% в мастерской "Талант"</span>
+                    </div>
+                    <div class="reward-item">
+                        <i class="material-symbols-outlined">stars</i>
+                        <span>Достижение "Исследователь"</span>
+                    </div>
+                    <div class="reward-item">
+                        <i class="material-symbols-outlined">diamond</i>
+                        <span class="reward-points">1000 <span class="crystal-large-img"></span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="how-to-participate">
+                <h3>Как участвовать:</h3>
+                <div class="steps-list">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-text">Посещайте локации, указанные в заданиях</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-text">Сканируйте QR-код на месте или в чек заведения внутри задания</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-text">Копите баллы и получайте бонусы от партнеров</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="participate-fixed">
+            <button class="participate-btn" onclick="participateInChallenge()">
+                Участвовать
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let timeRemaining = { days: 1, hours: 10, minutes: 5 };
+
+        function updateCountdown() {
+            if (timeRemaining.days === 0 && timeRemaining.hours === 0 && timeRemaining.minutes === 0) {
+                document.getElementById('countdown').textContent = "Челлендж завершён";
+                return;
+            }
+            let countdownText = '';
+            if (timeRemaining.days > 0) countdownText += `${timeRemaining.days} дн. `;
+            if (timeRemaining.hours > 0 || timeRemaining.days > 0) countdownText += `${timeRemaining.hours} ч. `;
+            countdownText += `${timeRemaining.minutes} мин.`;
+            document.getElementById('countdown').textContent = countdownText;
+            if (timeRemaining.minutes > 0) {
+                timeRemaining.minutes--;
+            } else {
+                timeRemaining.minutes = 59;
+                if (timeRemaining.hours > 0) {
+                    timeRemaining.hours--;
+                } else {
+                    timeRemaining.hours = 23;
+                    if (timeRemaining.days > 0) timeRemaining.days--;
+                }
+            }
+        }
+
+        function participateInChallenge() {
+            // СОХРАНЯЕМ ИНФОРМАЦИЮ ОБ УЧАСТИИ
+            localStorage.setItem('beauty_challenge_joined', 'true');
+            localStorage.setItem('beauty_challenge_progress', JSON.stringify({ completedTasks: 0, totalTasks: 5 }));
+            
+            // Переходим на страницу с заданиями
+            window.location.href = 'beauty-seekers-active.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCountdown();
+            setInterval(updateCountdown, 60000);
+        });
+    </script>
+</body>
+</html>

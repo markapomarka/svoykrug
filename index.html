@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>СвойКруг - мероприятия для компании</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <script>
+        // Очищаем всё при каждой загрузке страницы
+        localStorage.clear();
+    </script>
+
+    <div class="app-container">
+        <!-- Шапка (упрощенная, без бургера) -->
+        <header class="main-header">
+            <div class="header-placeholder"></div>
+            <h1 class="gradient-title">СвойКруг</h1>
+            <div class="header-placeholder"></div>
+        </header>
+
+        <!-- Боковое меню -->
+        <div class="side-menu" id="sideMenu">
+            <div class="side-menu-header">
+                <div class="close-menu" onclick="toggleSideMenu()">✕</div>
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <span class="avatar-initials">ММ</span>
+                    </div>
+                    <div class="user-details">
+                        <div class="user-name">Мария Малинина</div>
+                        <div class="user-status">Активна сейчас</div>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="side-menu-nav">
+                <div class="side-menu-item" onclick="handleMenuClick('Сообщества')">
+                    <i class="material-symbols-outlined">groups</i>
+                    <span>Сообщества</span>
+                </div>
+                <div class="side-menu-item" onclick="handleMenuClick('Чаты')">
+                    <i class="material-symbols-outlined">chat</i>
+                    <span>Чаты</span>
+                </div>
+                <div class="side-menu-item" onclick="handleMenuClick('Друзья')">
+                    <i class="material-symbols-outlined">people</i>
+                    <span>Друзья</span>
+                </div>
+                <div class="side-menu-item" onclick="handleMenuClick('Мои анкеты')">
+                    <i class="material-symbols-outlined">description</i>
+                    <span>Мои анкеты</span>
+                </div>
+                
+                <div class="side-menu-divider"></div>
+                
+                <div class="side-menu-item" onclick="window.location.href='pages/challenges.html'">
+                    <i class="material-symbols-outlined">emoji_events</i>
+                    <span>Челленджи</span>
+                </div>
+                <div class="side-menu-item" onclick="window.location.href='pages/challenges.html?tab=my'">
+                    <i class="material-symbols-outlined">task_alt</i>
+                    <span>Мои челленджи</span>
+                </div>
+                
+                <div class="side-menu-divider"></div>
+                
+                <div class="side-menu-item" onclick="window.location.href='pages/wheel.html'">
+                    <i class="material-symbols-outlined">casino</i>
+                    <span>Колесо удачи</span>
+                </div>
+                
+                <div class="side-menu-divider"></div>
+                
+                <div class="side-menu-item" onclick="handleMenuClick('Выбираем вместе')">
+                    <i class="material-symbols-outlined">how_to_vote</i>
+                    <span>Выбираем вместе</span>
+                </div>
+                <div class="side-menu-item" onclick="handleMenuClick('Создаём чат')">
+                    <i class="material-symbols-outlined">add_comment</i>
+                    <span>Создаём чат</span>
+                </div>
+                <div class="side-menu-item" onclick="handleMenuClick('Мои чаты')">
+                    <i class="material-symbols-outlined">forum</i>
+                    <span>Мои чаты</span>
+                </div>
+            </nav>
+        </div>
+        <div class="overlay" id="overlay" onclick="toggleSideMenu()"></div>
+
+        <!-- Контент -->
+        <main class="content-scroll">
+            <!-- Промо-блок -->
+            <section class="promo-block">
+                <h2 class="promo-title">Вам доступны новые челленджи!</h2>
+                <p class="promo-subtitle">Скорее переходите во вкладку челленджей и выполняйте задания!</p>
+                <button class="promo-button" onclick="goToChallenges()">К челленджам →</button>
+            </section>
+
+            <!-- Сторис -->
+            <section class="stories-container">
+                <div class="story-item" onclick="openStoryModal('challenges')">
+                    <div class="story-circle"><i class="material-symbols-outlined">emoji_events</i></div>
+                    <span class="story-label">Челленджи</span>
+                </div>
+                <div class="story-item" onclick="openStoryModal('lottery')">
+                    <div class="story-circle"><i class="material-symbols-outlined">casino</i></div>
+                    <span class="story-label">Колесо удачи</span>
+                </div>
+                <div class="story-item" onclick="openStoryModal('bonus')">
+                    <div class="story-circle"><i class="material-symbols-outlined">card_giftcard</i></div>
+                    <span class="story-label">Бонусы</span>
+                </div>
+                <div class="story-item" onclick="openStoryModal('achievements')">
+                    <div class="story-circle"><i class="material-symbols-outlined">stars</i></div>
+                    <span class="story-label">Достижения</span>
+                </div>
+            </section>
+
+            <!-- О приложении -->
+            <section class="about-section">
+                <h3> О приложении</h3>
+                <p><strong>СвойКруг</strong> – это первая социальная сеть для активных жителей, где живые мероприятия превращаются в увлекательный квест.</p>
+                <p>Хватит сидеть в одиночестве – найди компанию на концерт, сходи на мероприятие и получи скидку за свою активность!</p>
+                <blockquote class="about-quote">«Вместе всегда интереснее!»</blockquote>
+            </section>
+        </main>
+
+        <!-- Модальное окно Челленджи -->
+        <div class="story-modal" id="challengesModal">
+            <div class="story-modal-content">
+                <div class="story-modal-close" onclick="closeStoryModal('challengesModal')">✕</div>
+                <div class="story-modal-icon">
+                    <i class="material-symbols-outlined">emoji_events</i>
+                </div>
+                <h3>Челленджи</h3>
+                <p>В нашем приложении вас ждут увлекательные челленджи, которые сделают посещение креативных кластеров еще интереснее!</p>
+                <h4>Как выполнять челленджи:</h4>
+                <div class="story-steps">
+                    <div class="story-step">Во вкладке челленджей найдите тот, который Вам было бы интересно пройти</div>
+                    <div class="story-step">Перейдите на страницу данного челленджа</div>
+                    <div class="story-step">Нажмите кнопку "Участвовать"</div>
+                    <div class="story-step">Следуйте инструкциям и зарабатывайте награды</div>
+                </div>
+                <button class="story-modal-btn" onclick="goToChallenges()">К челленджам →</button>
+            </div>
+        </div>
+
+        <!-- Модальное окно Колесо удачи -->
+        <div class="story-modal" id="lotteryModal">
+            <div class="story-modal-content">
+                <div class="story-modal-close" onclick="closeStoryModal('lotteryModal')">✕</div>
+                <div class="story-modal-icon">
+                    <i class="material-symbols-outlined">casino</i>
+                </div>
+                <h3>Колесо удачи</h3>
+                <p>Примите участие в Колесе удачи!</p>
+                <h4>Как участвовать:</h4>
+                <div class="story-steps">
+                    <div class="story-step">Перейдите во вкладку "Колесо удачи" в боковом меню</div>
+                    <div class="story-step">Нажмите на кнопку "Крутить колесо"</div>
+                    <div class="story-step">Выигрывайте баллы и подарки от партнеров</div>
+                    <div class="story-step">Вы также можете пополнять свой баланс, чтобы крутить колесо снова</div>
+                </div>
+                <button class="story-modal-btn" onclick="goToWheel()">К колесу удачи →</button>
+            </div>
+        </div>
+
+        <!-- Модальное окно Бонусы -->
+        <div class="story-modal" id="bonusModal">
+            <div class="story-modal-content">
+                <div class="story-modal-close" onclick="closeStoryModal('bonusModal')">✕</div>
+                <div class="story-modal-icon">
+                    <i class="material-symbols-outlined">card_giftcard</i>
+                </div>
+                <h3>Бонусы</h3>
+                <p>В нашем приложении существует две валюты:</p>
+                
+                <div class="currency-item">
+                    <span class="crystal-violet-icon"></span>
+                    <span><strong>Фиолетовые кристаллы</strong> — вы можете зарабатывать их, чтобы повышать свой уровень. Каждый новый уровень дает доступ к уникальным подаркам от партнеров, закрытым мероприятиям и многим другим бонусам!</span>
+                </div>
+                
+                <h4>Как зарабатывать фиолетовые кристаллы:</h4>
+                <div class="story-steps">
+                    <div class="story-step">Заходите ежедневно в приложение</div>
+                    <div class="story-step">Участвуйте в челленджах</div>
+                    <div class="story-step">Открывайте новые достижения</div>
+                    <div class="story-step">Крутите колесо удачи!</div>
+                </div>
+                
+                <div class="currency-item">
+                    <span class="crystal-orange-icon"></span>
+                    <span><strong>Оранжевые кристаллы</strong> — отдельная валюта для колеса удачи, она дает возможность совершать крутки!</span>
+                </div>
+                
+                <h4>Как зарабатывать оранжевые кристаллы:</h4>
+                <div class="story-steps">
+                    <div class="story-step">Ежедневно заходите в приложение</div>
+                    <div class="story-step">Вращайте колесо удачи</div>
+                    <div class="story-step">Пополняйте баланс самостоятельно в меню баланса!</div>
+                </div>
+                
+                <button class="story-modal-btn" onclick="goToProfile()">В профиль →</button>
+            </div>
+        </div>
+
+        <!-- Модальное окно Достижения -->
+        <div class="story-modal" id="achievementsModal">
+            <div class="story-modal-content">
+                <div class="story-modal-close" onclick="closeStoryModal('achievementsModal')">✕</div>
+                <div class="story-modal-icon">
+                    <i class="material-symbols-outlined">stars</i>
+                </div>
+                <h3>Достижения</h3>
+                <p>В нашем приложении Вам доступны самые разнообразные достижения, которые будут храниться в Вашем профиле!</p>
+                <h4>Как зарабатывать достижения:</h4>
+                <div class="story-steps">
+                    <div class="story-step">Участвуйте в челленджах</div>
+                    <div class="story-step">Активно участвуйте в мероприятиях</div>
+                    <div class="story-step">Выполняйте задания, необходимые для открытия достижений — во вкладке достижений доступны описания заданий</div>
+                </div>
+                <p class="story-footer-text">Пополняйте свою коллекцию достижений и получайте баллы <span class="crystal-violet-icon"></span></p>
+                <button class="story-modal-btn" onclick="goToProfile()">В профиль →</button>
+            </div>
+        </div>
+
+<!-- Модальное окно ежедневного бонуса -->
+<div class="daily-bonus-modal" id="dailyBonusModal">
+    <div class="daily-bonus-content">
+        <div class="daily-bonus-icon">
+            <i class="material-symbols-outlined">emoji_events</i>
+        </div>
+        <h3>Вы заходили в "СвойКруг" 5 дней подряд!</h3>
+        <p class="daily-bonus-subtitle">Это потрясающая вовлечённость!</p>
+        
+        <p class="daily-bonus-reward-title">Ваши старания вознаграждены:</p>
+        
+        <div class="daily-bonus-rewards">
+            <div class="daily-bonus-reward-item">
+                <div style="width: 40px; display: flex; justify-content: center;">
+                    <img src="images/violetcrystal.png" style="width: 28px; height: 28px;" alt="violet">
+                </div>
+                <div style="width: 80px; font-size: 20px; font-weight: 700;">+100</div>
+            </div>
+            <div class="daily-bonus-reward-item">
+                <div style="width: 40px; display: flex; justify-content: center;">
+                    <img src="images/orangecrystal.png" style="width: 22px; height: 22px;" alt="orange">
+                </div>
+                <div style="width: 80px; font-size: 20px; font-weight: 700;">+250</div>
+            </div>
+        </div>
+        
+        <p class="daily-bonus-footer">Продолжайте в том же духе, новые награды уже ждут впереди!</p>
+        
+        <button class="daily-bonus-btn" onclick="closeDailyBonusModal()">Отлично, продолжаем! →</button>
+    </div>
+</div>
+
+        <!-- Нижняя навигация (без подписей) -->
+        <footer class="bottom-nav-icons">
+            <div class="nav-icon-item" onclick="toggleSideMenu()">
+                <i class="material-symbols-outlined">menu</i>
+            </div>
+            <div class="nav-icon-item active" onclick="navigateTo('index.html')">
+                <i class="material-symbols-outlined">home</i>
+            </div>
+            <div class="nav-icon-item" onclick="alert('🎫 Раздел билетов в разработке')">
+                <i class="material-symbols-outlined">confirmation_number</i>
+            </div>
+            <div class="nav-icon-item" onclick="alert('❤️ Избранное в разработке')">
+                <i class="material-symbols-outlined">favorite</i>
+            </div>
+            <div class="nav-icon-item" onclick="window.location.href='pages/profile.html'">
+                <i class="material-symbols-outlined">person</i>
+            </div>
+        </footer>
+    </div>
+
+    <script src="scripts/app.js"></script>
+    <script>
+        function toggleSideMenu() {
+            const sideMenu = document.getElementById('sideMenu');
+            const overlay = document.getElementById('overlay');
+            
+            if (sideMenu && overlay) {
+                sideMenu.classList.toggle('open');
+                overlay.classList.toggle('show');
+                document.body.style.overflow = sideMenu.classList.contains('open') ? 'hidden' : '';
+            }
+        }
+
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+
+        function handleMenuClick(itemName) {
+            alert(`🚧 Раздел "${itemName}" скоро появится!\nСледите за обновлениями.`);
+        }
+
+        function openStoryModal(type) {
+            let modalId = '';
+            if (type === 'challenges') modalId = 'challengesModal';
+            else if (type === 'lottery') modalId = 'lotteryModal';
+            else if (type === 'bonus') modalId = 'bonusModal';
+            else if (type === 'achievements') modalId = 'achievementsModal';
+            
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeStoryModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function goToChallenges() {
+            window.location.href = 'pages/challenges.html';
+        }
+
+        function goToWheel() {
+            window.location.href = 'pages/wheel.html';
+        }
+
+        function goToProfile() {
+            window.location.href = 'pages/profile.html';
+        }
+
+        function showDailyBonusModal() {
+            const modal = document.getElementById('dailyBonusModal');
+            if (modal) {
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeDailyBonusModal() {
+            const modal = document.getElementById('dailyBonusModal');
+            if (modal) {
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Закрытие модального окна при клике вне его
+        document.addEventListener('click', (e) => {
+            const modals = document.querySelectorAll('.story-modal');
+            modals.forEach(modal => {
+                if (modal.classList.contains('show')) {
+                    if (e.target === modal) {
+                        modal.classList.remove('show');
+                        document.body.style.overflow = '';
+                    }
+                }
+            });
+        });
+
+        // Показываем уведомление при загрузке страницы
+        document.addEventListener('DOMContentLoaded', () => {
+            showDailyBonusModal();
+        });
+    </script>
+</body>
+</html>

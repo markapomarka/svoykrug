@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Сканирование QR-кода - СвойКруг</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/task-scan.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="back-button" onclick="history.back()">
+                <i class="material-symbols-outlined">arrow_back</i>
+            </div>
+            <h1 class="gradient-title" id="restaurantName">Ресторан "Мечта"</h1>
+            <div class="header-placeholder"></div>
+        </header>
+
+        <main class="content-scroll" id="mainContent">
+            <div class="restaurant-info">
+                <div class="restaurant-address">
+                    <i class="material-symbols-outlined">location_on</i>
+                    <span id="restaurantAddress">Морская набережная, дом 1</span>
+                </div>
+                <div class="restaurant-cuisine">
+                    <i class="material-symbols-outlined">restaurant</i>
+                    <span id="restaurantCuisine">Кухня: Русская</span>
+                </div>
+                <div class="restaurant-description" id="restaurantDescription">
+                    Мечта — это ресторан в креативном пространстве Севкабель Порт, где традиционные русские вкусы гармонично сочетаются с современным дизайном интерьера и атмосферой творческого вдохновения.
+                </div>
+            </div>
+
+            <div class="scanner-section">
+                <h3>Сканер QR-кода</h3>
+                <p>Наведите камеру на QR-код в локации, чтобы отметить выполнение задания</p>
+                
+                <div class="scanner-preview" id="scannerPreview">
+                    <div class="scanner-placeholder">
+                        <i class="material-symbols-outlined">qr_code_scanner</i>
+                        <span>Камера готова к сканированию</span>
+                    </div>
+                    <div class="scanner-frame"></div>
+                </div>
+
+                <div class="scanner-actions">
+                    <button class="scan-btn" onclick="startScanning()">
+                        <i class="material-symbols-outlined">qr_code_scanner</i>
+                        Начать сканирование
+                    </button>
+                    <div class="upload-divider">Или</div>
+                    <button class="upload-btn" onclick="uploadPhoto()">
+                        <i class="material-symbols-outlined">photo_camera</i>
+                        Загрузить фото
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <div class="success-modal" id="successModal">
+            <div class="success-modal-content">
+                <div class="success-icon">
+                    <i class="material-symbols-outlined">check_circle</i>
+                </div>
+                <h3>QR-код успешно отсканирован!</h3>
+                <button class="ok-btn" onclick="closeSuccessModal()">OK</button>
+            </div>
+        </div>
+
+        <div class="loading-modal" id="loadingModal">
+            <div class="loading-modal-content">
+                <div class="spinner"></div>
+                <p>Сканирование...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const taskId = parseInt(new URLSearchParams(window.location.search).get('id')) || 1;
+
+        const tasksInfo = {
+            1: { 
+                name: 'Ресторан "Мечта"', 
+                address: 'Морская набережная, дом 1',
+                cuisine: 'Кухня: Русская',
+                description: 'Мечта — это ресторан в креативном пространстве Севкабель Порт, где традиционные русские вкусы гармонично сочетаются с современным дизайном интерьера и атмосферой творческого вдохновения.'
+            },
+            2: { 
+                name: 'Ресторан "Италия"', 
+                address: 'Морская набережная, дом 15',
+                cuisine: 'Кухня: Итальянская',
+                description: 'Италия — это аутентичный итальянский ресторан с домашней пастой, пиццей из дровяной печи и лучшими итальянскими винами.'
+            },
+            3: { 
+                name: 'Ресторан "Delicious"', 
+                address: 'Суворовский проспект, дом 20',
+                cuisine: 'Кухня: Европейская',
+                description: 'Delicious — это современный ресторан с авторской кухней от шеф-повара.'
+            },
+            4: { 
+                name: 'Ресторан "EatInOut"', 
+                address: 'улица Печатников, дом 14',
+                cuisine: 'Кухня: Фьюжн',
+                description: 'EatInOut — это пространство, где встречаются кулинарные традиции разных стран.'
+            },
+            5: { 
+                name: 'Ресторан "Зеркало Вкуса"', 
+                address: 'улица Восстания, дом 30',
+                cuisine: 'Кухня: Французская',
+                description: 'Зеркало Вкуса — это ресторан высокой французской кухни.'
+            }
+        };
+
+        function loadTaskInfo() {
+            const task = tasksInfo[taskId];
+            if (task) {
+                document.getElementById('restaurantName').textContent = task.name;
+                document.getElementById('restaurantAddress').textContent = task.address;
+                document.getElementById('restaurantCuisine').textContent = task.cuisine;
+                document.getElementById('restaurantDescription').textContent = task.description;
+            }
+        }
+
+        function startScanning() {
+            const loadingModal = document.getElementById('loadingModal');
+            loadingModal.classList.add('show');
+            setTimeout(() => {
+                loadingModal.classList.remove('show');
+                document.getElementById('successModal').classList.add('show');
+            }, 2000);
+        }
+
+        function uploadPhoto() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.onchange = () => {
+                const loadingModal = document.getElementById('loadingModal');
+                loadingModal.classList.add('show');
+                setTimeout(() => {
+                    loadingModal.classList.remove('show');
+                    document.getElementById('successModal').classList.add('show');
+                }, 1500);
+            };
+            input.click();
+        }
+
+        function updateGastroProgress() {
+            let completedCount = 0;
+            for (let i = 1; i <= 5; i++) {
+                if (localStorage.getItem(`task_${i}_completed`) === 'true') {
+                    completedCount++;
+                }
+            }
+            
+            const challengeProgress = {
+                completedTasks: completedCount,
+                totalTasks: 5
+            };
+            localStorage.setItem('gastro_challenge_progress', JSON.stringify(challengeProgress));
+            localStorage.setItem('challenge_3_progress', JSON.stringify(challengeProgress));
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.remove('show');
+            
+            // Сохраняем выполнение текущего задания
+            localStorage.setItem(`task_${taskId}_completed`, 'true');
+            
+            // Обновляем общий прогресс
+            updateGastroProgress();
+            
+            // Возвращаемся на страницу со всеми заданиями
+            window.location.href = 'challenge-active.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadTaskInfo();
+        });
+    </script>
+</body>
+</html>

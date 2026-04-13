@@ -1,0 +1,932 @@
+/* Страница деталей челленджа */
+.content-scroll {
+    padding: 20px;
+    padding-bottom: 100px;
+}
+
+/* Градиентная шапка */
+.challenge-detail-header {
+    padding: 28px 24px;
+    border-radius: 28px;
+    margin-bottom: 24px;
+    color: white;
+}
+
+.challenge-detail-header.pink-purple {
+    background: linear-gradient(135deg, #F41D91, #9C27B0);
+}
+
+.challenge-detail-header.orange-pink {
+    background: linear-gradient(135deg, #F2711E, #F41D91);
+}
+
+.challenge-detail-header.orange-purple {
+    background: linear-gradient(135deg, #F2711E, #9C27B0);
+}
+
+.challenge-detail-header h2 {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.challenge-detail-header p {
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.95;
+}
+
+/* Карточка времени */
+.time-card {
+    background: white;
+    border-radius: 20px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(244, 29, 145, 0.1);
+}
+
+.time-icon i {
+    font-size: 32px;
+    color: #F41D91;
+}
+
+.time-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.time-label {
+    font-size: 12px;
+    color: #999;
+}
+
+.time-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+/* Прогресс */
+.progress-section {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(244, 29, 145, 0.1);
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #666;
+}
+
+.progress-tasks {
+    font-weight: 600;
+    color: #F41D91;
+    margin-left: 6px;
+}
+
+.progress-percent {
+    font-weight: 700;
+    color: #F41D91;
+}
+
+.progress-bar-container {
+    height: 10px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #F41D91, #F2711E);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+/* Награды */
+.rewards-section {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(244, 29, 145, 0.1);
+}
+
+.rewards-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.rewards-trophy-icon {
+    font-size: 28px !important;
+    color: #F41D91 !important;
+}
+
+.rewards-section h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.rewards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.reward-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+}
+
+.reward-item i {
+    font-size: 24px;
+}
+
+.reward-item i:first-child {
+    color: #F41D91;
+}
+
+.reward-item span {
+    font-size: 14px;
+    color: #333;
+}
+
+.reward-points {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.crystal-large {
+    color: #D500F9 !important;
+    background: none !important;
+    font-weight: 800 !important;
+    font-size: 52px !important;
+    display: inline-block !important;
+    text-shadow: 0 0 3px rgba(213, 0, 249, 0.4) !important;
+    margin-left: 8px !important;
+    line-height: 1 !important;
+}
+
+.reward-points {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.reward-points span {
+    color: #333;
+}
+
+/* Для иконки бриллианта */
+.reward-item i.material-symbols-outlined {
+    color: #F41D91;
+}
+
+/* Как участвовать */
+.how-to-participate {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(244, 29, 145, 0.1);
+}
+
+.how-to-participate h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #1a1a1a;
+}
+
+.steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.step-number {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #F41D91, #F2711E);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.step-text {
+    flex: 1;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* Фиксированная кнопка участия */
+.participate-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 16px 20px;
+    background: white;
+    border-top: 1px solid rgba(244, 29, 145, 0.1);
+    z-index: 100;
+}
+
+.participate-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #F41D91, #F2711E);
+    border: none;
+    padding: 16px;
+    border-radius: 60px;
+    color: white;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.participate-btn:active {
+    transform: scale(0.98);
+}
+
+/* Кнопка назад */
+.back-button {
+    cursor: pointer;
+    font-size: 24px;
+    color: #F41D91;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.back-button:active {
+    transform: scale(0.9);
+}
+
+/* Адаптация */
+@media (max-width: 480px) {
+    .challenge-detail-header h2 {
+        font-size: 22px;
+    }
+    
+    .challenge-detail-header p {
+        font-size: 13px;
+    }
+    
+    .time-value {
+        font-size: 14px;
+    }
+    
+    .crystal-large {
+        font-size: 36px !important;
+    }
+}
+
+/* Вы участвуете */
+.participating-section {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(76, 175, 80, 0.2);
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.05), rgba(76, 175, 80, 0.02));
+}
+
+.participating-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.participating-header i {
+    font-size: 28px;
+    color: #4CAF50;
+}
+
+.participating-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #4CAF50;
+    margin: 0;
+}
+
+/* Задания - ОБНОВЛЕННЫЕ С УВЕЛИЧЕННЫМИ ЦИФРАМИ */
+.tasks-section {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(244, 29, 145, 0.1);
+}
+
+.tasks-section h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #1a1a1a;
+}
+
+.tasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: #f8f8f8;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.task-item:active {
+    transform: scale(0.98);
+    background: #f0f0f0;
+}
+
+.task-info-full {
+    flex: 1;
+}
+
+.task-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+}
+
+.task-address {
+    font-size: 13px;
+    color: #666;
+}
+
+.task-download-btn {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #F41D91, #F2711E);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.task-download-btn:active {
+    transform: scale(0.9);
+}
+
+.task-download-btn i {
+    font-size: 24px;
+    color: white;
+}
+
+/* Кнопка "Вы участвуете" */
+.participating-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #F41D91, #F2711E);
+    border: none;
+    padding: 16px;
+    border-radius: 60px;
+    color: white;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    opacity: 0.5;
+    filter: grayscale(0.2);
+}
+
+/* Выполненное задание */
+.task-item.completed {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(76, 175, 80, 0.05));
+    border: 1px solid #4CAF50;
+    position: relative;
+}
+
+.task-item.completed .task-name {
+    color: #4CAF50;
+}
+
+.completed-badge {
+    display: inline-block;
+    background: #4CAF50;
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.task-item.completed .task-download-btn {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    opacity: 0.7;
+}
+
+.task-location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #F41D91;
+    margin-bottom: 6px;
+}
+
+.task-location i {
+    font-size: 16px;
+    color: #F41D91;
+}
+
+/* ========== ПОСЛЕДОВАТЕЛЬНЫЕ ЗАДАНИЯ (ДЛЯ ИСКАТЕЛИ КРАСОТЫ) ========== */
+/* Номера заданий в кружках - УВЕЛИЧЕНЫ */
+.task-number {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #F41D91, #F2711E);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+    font-size: 22px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(244, 29, 145, 0.3);
+}
+
+.task-item-sequential.completed .task-number {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+}
+
+.task-item-sequential.locked .task-number {
+    background: #ccc;
+    box-shadow: none;
+}
+
+/* Названия заданий - УВЕЛИЧЕНЫ */
+.task-name-large {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Карточки последовательных заданий */
+.tasks-list-sequential {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.task-item-sequential {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 20px;
+    transition: all 0.2s;
+}
+
+.task-item-sequential.available {
+    background: linear-gradient(135deg, rgba(244, 29, 145, 0.1), rgba(242, 113, 30, 0.05));
+    border: 1px solid #F41D91;
+    cursor: pointer;
+}
+
+.task-item-sequential.available:active {
+    transform: scale(0.98);
+}
+
+.task-item-sequential.completed {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(76, 175, 80, 0.05));
+    border: 1px solid #4CAF50;
+}
+
+.task-item-sequential.locked {
+    background: #f5f5f5;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.task-info-full {
+    flex: 1;
+}
+
+.task-address {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 6px;
+}
+
+.task-description {
+    font-size: 13px;
+    color: #999;
+    line-height: 1.4;
+}
+
+.task-status-icon {
+    width: 32px;
+    text-align: center;
+}
+
+.task-status-icon i {
+    font-size: 28px;
+}
+
+/* Бейджи */
+.completed-badge {
+    background: #4CAF50;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.locked-badge {
+    background: #999;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.available-badge {
+    background: linear-gradient(135deg, #F41D91, #F2711E);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+/* Минималистичные карточки */
+.tasks-minimal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-minimal-card {
+    background: white;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f0f0f0;
+    transition: all 0.2s;
+}
+
+.task-minimal-card.available {
+    background: linear-gradient(135deg, #fff, #fef9ff);
+    border-color: #F41D91;
+    cursor: pointer;
+}
+
+.task-minimal-card.available:active {
+    transform: scale(0.98);
+    background: #fef0f8;
+}
+
+.task-minimal-card.completed {
+    background: linear-gradient(135deg, #f8fff8, #f0fff0);
+    border-color: #4CAF50;
+}
+
+.task-minimal-card.locked {
+    background: #fafafa;
+    border-color: #eee;
+    opacity: 0.7;
+}
+
+.task-minimal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.task-minimal-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.task-minimal-card.completed .task-minimal-name {
+    color: #4CAF50;
+}
+
+.task-minimal-card.locked .task-minimal-name {
+    color: #999;
+}
+
+.task-minimal-lock {
+    font-size: 14px;
+    color: #999;
+}
+
+.task-minimal-check {
+    font-size: 16px;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.task-minimal-status {
+    font-size: 12px;
+    color: #F41D91;
+}
+
+.task-minimal-card.locked .task-minimal-status {
+    color: #999;
+}
+
+.task-minimal-card.completed .task-minimal-status {
+    color: #4CAF50;
+}
+
+/* Карта-путь */
+/* Карта-путь */
+.map-section {
+    background: white;
+    border-radius: 24px;
+    padding: 16px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(244, 29, 145, 0.1);
+}
+
+.map-section h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #1a1a1a;
+}
+
+.journey-map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.map-svg {
+    width: 100%;
+    height: auto;
+    max-width: 350px;
+}
+
+.map-node {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.map-node:active {
+    transform: scale(0.95);
+}
+
+.map-node circle {
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.map-node text {
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.map-svg line {
+    transition: all 0.3s ease;
+}
+
+/* Контейнер карты с дымкой */
+.map-container {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+/* Розовая дымка */
+.fog-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(244, 29, 145, 0.15);
+    backdrop-filter: blur(4px);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.congrats-overlay {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 28px;
+    padding: 24px 32px;
+    box-shadow: 0 4px 20px rgba(244, 29, 145, 0.2);
+}
+
+.congrats-overlay .congrats-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.congrats-overlay h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #F41D91;
+    margin-bottom: 8px;
+}
+
+.congrats-overlay p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Модальное окно награды */
+.reward-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.reward-modal.show {
+    display: flex;
+}
+
+.reward-modal-content {
+    background: white;
+    border-radius: 32px;
+    padding: 32px 24px;
+    text-align: center;
+    width: 300px;
+    position: relative;
+    animation: modalPop 0.3s ease;
+}
+
+@keyframes modalPop {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.reward-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.2s;
+}
+
+.reward-modal-close:hover {
+    color: #F41D91;
+}
+
+.reward-modal-icon i {
+    font-size: 64px;
+    color: #F41D91;
+    margin-bottom: 16px;
+}
+
+.reward-modal-content h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 24px;
+    line-height: 1.4;
+}
+
+.reward-modal-btn {
+    background: linear-gradient(135deg, #F41D91, #F2711E);
+    border: none;
+    padding: 14px 24px;
+    border-radius: 40px;
+    color: white;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    width: 100%;
+}
+
+.reward-modal-btn:active {
+    transform: scale(0.98);
+}
+
+/* Фиолетовый кристалл из изображения */
+.crystal-icon-img {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-image: url('../images/violetcrystal.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+    margin: 0 2px;
+}
+
+/* Крупный фиолетовый кристалл */
+.crystal-large-img {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    background-image: url('../images/violetcrystal.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+/* Адаптация для мобильных устройств - увеличенные элементы */
+@media (max-width: 480px) {
+    .task-number {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+    
+    .task-name-large {
+        font-size: 16px;
+    }
+    
+    .task-address, .task-description {
+        font-size: 12px;
+    }
+    
+    .task-item-sequential {
+        padding: 14px;
+        gap: 14px;
+    }
+}

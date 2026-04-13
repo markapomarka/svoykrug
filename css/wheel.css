@@ -1,0 +1,460 @@
+.content-scroll {
+    padding: 20px;
+    padding-bottom: 80px;
+}
+
+.orange-crystal {
+    color: #F2711E;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.purple-crystal {
+    color: #9C27B0;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.balance-card {
+    background: white;
+    border-radius: 28px;
+    padding: 20px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(244, 29, 145, 0.1);
+}
+
+.balance-label {
+    font-size: 14px;
+    color: #666;
+}
+
+.balance-value {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 28px;
+    font-weight: 800;
+    color: #1a1a1a;
+}
+
+.balance-value .orange-crystal {
+    color: #F2711E;
+    font-size: 24px;
+}
+
+.topup-btn {
+    background: linear-gradient(135deg, #F41D91, #F2711E);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 30px;
+    color: white;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.topup-btn:active {
+    transform: scale(0.95);
+    opacity: 0.9;
+}
+
+.wheel-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+    position: relative;
+}
+
+.wheel-wrapper {
+    position: relative;
+    width: 320px;
+    height: 320px;
+}
+
+#wheelCanvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 0 8px white, 0 0 0 12px #F41D91;
+    transition: transform 0.3s;
+}
+
+.wheel-pointer {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-top: 35px solid #F41D91;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    z-index: 10;
+}
+
+.wheel-pointer::after {
+    content: '';
+    position: absolute;
+    top: -38px;
+    left: -8px;
+    width: 16px;
+    height: 16px;
+    background: #F2711E;
+    border-radius: 50%;
+}
+
+.wheel-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #F41D91, #F2711E);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 5;
+    border: 3px solid white;
+}
+
+.spin-section {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(244, 29, 145, 0.1);
+}
+
+.spin-btn {
+    background: linear-gradient(135deg, #F41D91, #F2711E);
+    border: none;
+    padding: 16px 32px;
+    border-radius: 60px;
+    color: white;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.spin-btn:active {
+    transform: scale(0.98);
+}
+
+.spin-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.spin-cost {
+    font-size: 14px;
+    color: #666;
+}
+
+.spin-cost .orange-crystal {
+    font-size: 14px;
+    color: #F2711E;
+}
+
+.result-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.result-modal.show {
+    display: flex;
+}
+
+.result-modal-content {
+    background: white;
+    border-radius: 32px;
+    padding: 32px 24px;
+    text-align: center;
+    width: 280px;
+    position: relative;
+    animation: modalPop 0.3s ease;
+}
+
+@keyframes modalPop {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.result-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+}
+
+.result-icon {
+    font-size: 64px;
+    margin-bottom: 16px;
+}
+
+.result-modal-content h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #F41D91;
+    margin-bottom: 8px;
+}
+
+.result-modal-content p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 24px;
+}
+
+.result-btn {
+    background: linear-gradient(135deg, #F41D91, #F2711E);
+    border: none;
+    padding: 12px 32px;
+    border-radius: 40px;
+    color: white;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.topup-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.topup-modal.show {
+    display: flex;
+}
+
+.topup-modal-content {
+    background: white;
+    border-radius: 32px;
+    padding: 32px 24px;
+    width: 300px;
+    position: relative;
+    animation: modalPop 0.3s ease;
+}
+
+.topup-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+}
+
+.topup-modal-content h3 {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 24px;
+    color: #1a1a1a;
+}
+
+.topup-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.topup-option {
+    background: linear-gradient(135deg, rgba(244, 29, 145, 0.1), rgba(242, 113, 30, 0.05));
+    border: 1px solid rgba(244, 29, 145, 0.2);
+    border-radius: 20px;
+    padding: 16px 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.topup-option:active {
+    transform: scale(0.95);
+}
+
+.topup-amount {
+    font-size: 24px;
+    font-weight: 800;
+    color: #F41D91;
+    display: block;
+}
+
+.topup-price {
+    font-size: 14px;
+}
+
+.topup-confirm-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #F41D91, #F2711E);
+    border: none;
+    padding: 14px;
+    border-radius: 40px;
+    color: white;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.reward-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.reward-modal.show {
+    display: flex;
+}
+
+.reward-modal-content {
+    background: white;
+    border-radius: 32px;
+    padding: 32px 24px;
+    text-align: center;
+    width: 300px;
+    position: relative;
+    animation: modalPop 0.3s ease;
+}
+
+.reward-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+}
+
+.reward-modal-icon i {
+    font-size: 64px;
+    color: #F41D91;
+    margin-bottom: 16px;
+}
+
+.reward-modal-content h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 24px;
+    line-height: 1.4;
+}
+
+.reward-modal-btn {
+    background: linear-gradient(135deg, #F41D91, #F2711E);
+    border: none;
+    padding: 14px 24px;
+    border-radius: 40px;
+    color: white;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.reward-modal-btn:active {
+    transform: scale(0.98);
+}
+
+.back-button {
+    cursor: pointer;
+    font-size: 24px;
+    color: #F41D91;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Фиолетовый кристалл из изображения */
+.crystal-violet {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-image: url('../images/violetcrystal.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+}
+
+/* Оранжевый кристалл из изображения */
+.crystal-orange {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-image: url('../images/orangecrystal.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+}
+
+/* Маленький оранжевый кристалл для баланса */
+.crystal-orange-small {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-image: url('../images/orangecrystal.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+}
+
+/* Крупный оранжевый кристалл */
+.crystal-orange-large {
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    background-image: url('../images/orangecrystal.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+}
