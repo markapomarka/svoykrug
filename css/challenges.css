@@ -213,8 +213,8 @@
     color: #1a1a1a;
 }
 
-/* Фиолетовый кристалл из изображения */
-.crystal-icon {
+/* ========== КРИСТАЛЛЫ ========== */
+.crystal-icon-img {
     width: 16px;
     height: 16px;
     display: inline-block;
@@ -226,10 +226,9 @@
     margin: 0 2px;
 }
 
-.reward-text .crystal-icon {
+.reward-text .crystal-icon-img {
     width: 14px;
     height: 14px;
-    background-image: url('../images/violetcrystal.png');
 }
 
 /* Кнопка "Забрать награду" */
@@ -547,17 +546,4 @@
     .challenge-title h3 {
         font-size: 16px;
     }
-}
-
-/* Класс, который используется в JS */
-.crystal-icon-img {
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-    background-image: url('../images/violetcrystal.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    vertical-align: middle;
-    margin: 0 2px;
 }
