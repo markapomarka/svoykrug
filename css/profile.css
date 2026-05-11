@@ -10,7 +10,7 @@
     border-radius: 28px;
     margin-bottom: 24px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(244, 29, 145, 0.1);
+    border: 1px solid rgba(233, 30, 99, 0.1);
     overflow: hidden;
 }
 
@@ -19,7 +19,7 @@
     align-items: center;
     gap: 20px;
     padding: 24px 20px 20px 20px;
-    background: linear-gradient(135deg, rgba(244, 29, 145, 0.03), rgba(242, 113, 30, 0.01));
+    background: linear-gradient(135deg, rgba(233, 30, 99, 0.03), rgba(230, 126, 34, 0.01));
 }
 
 .profile-avatar {
@@ -30,14 +30,14 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 32px;
     font-weight: 700;
     color: white;
-    box-shadow: 0 4px 12px rgba(244, 29, 145, 0.3);
+    box-shadow: 0 4px 12px rgba(233, 30, 99, 0.3);
 }
 
 .profile-info {
@@ -53,7 +53,7 @@
 
 .profile-level-badge {
     display: inline-block;
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     color: white;
     font-size: 13px;
     font-weight: 600;
@@ -91,7 +91,7 @@
 
 .level-progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #F41D91, #F2711E);
+    background: linear-gradient(90deg, #E91E63, #E67E22);
     border-radius: 10px;
     transition: width 0.3s ease;
 }
@@ -103,7 +103,7 @@
     padding: 20px;
     margin-bottom: 24px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(244, 29, 145, 0.1);
+    border: 1px solid rgba(233, 30, 99, 0.1);
 }
 
 .section-header {
@@ -121,7 +121,7 @@
 
 .section-arrow {
     font-size: 20px;
-    color: #F41D91;
+    color: #E91E63;
     cursor: pointer;
 }
 
@@ -134,12 +134,12 @@
 .achievement-card {
     flex: 1;
     min-width: calc(25% - 10px);
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     border-radius: 16px;
     padding: 12px 8px;
     text-align: center;
     transition: transform 0.2s;
-    box-shadow: 0 2px 8px rgba(244, 29, 145, 0.3);
+    box-shadow: 0 2px 8px rgba(233, 30, 99, 0.3);
 }
 
 /* Заблокированное достижение (Гурман) */
@@ -168,19 +168,22 @@
 }
 
 .achievement-name {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
     color: white;
     line-height: 1.3;
+    text-align: center;
+    white-space: normal;
+    word-break: keep-all;
 }
 
 /* Пригласи друзей */
 .invite-section {
-    background: linear-gradient(135deg, rgba(244, 29, 145, 0.05), rgba(242, 113, 30, 0.02));
+    background: linear-gradient(135deg, rgba(233, 30, 99, 0.05), rgba(230, 126, 34, 0.02));
     border-radius: 20px;
     padding: 20px;
     margin-bottom: 24px;
-    border: 1px solid rgba(244, 29, 145, 0.2);
+    border: 1px solid rgba(233, 30, 99, 0.2);
 }
 
 .invite-section h3 {
@@ -228,14 +231,14 @@
 }
 
 .copy-btn {
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     color: white;
 }
 
 .qr-btn {
     background: white;
-    color: #F41D91;
-    border: 1px solid #F41D91;
+    color: #E91E63;
+    border: 1px solid #E91E63;
 }
 
 /* Награды */
@@ -245,7 +248,7 @@
     padding: 20px;
     margin-bottom: 24px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(244, 29, 145, 0.1);
+    border: 1px solid rgba(233, 30, 99, 0.1);
 }
 
 .rewards-section .section-header {
@@ -256,7 +259,7 @@
 
 .rewards-header-icon {
     font-size: 24px;
-    color: #F41D91;
+    color: #E91E63;
 }
 
 .rewards-section .section-header h3 {
@@ -287,7 +290,7 @@
 
 .reward-icon i {
     font-size: 32px;
-    color: #F41D91;
+    color: #E91E63;
 }
 
 .reward-details {
@@ -308,7 +311,7 @@
 }
 
 .reward-action-btn {
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     border: none;
     padding: 8px 20px;
     border-radius: 30px;
@@ -340,7 +343,7 @@
     padding: 20px;
     margin-bottom: 24px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(244, 29, 145, 0.1);
+    border: 1px solid rgba(233, 30, 99, 0.1);
 }
 
 .earn-section h3 {
@@ -382,7 +385,7 @@
 
 .earn-arrow {
     font-size: 20px;
-    color: #F41D91;
+    color: #E91E63;
 }
 
 /* Модальное окно QR-кода */
@@ -435,7 +438,7 @@
 }
 
 .qr-modal-close:hover {
-    color: #F41D91;
+    color: #E91E63;
 }
 
 .qr-code-container {
@@ -456,7 +459,7 @@
 
 .qr-link {
     font-size: 12px;
-    color: #F41D91;
+    color: #E91E63;
     word-break: break-all;
 }
 
@@ -464,7 +467,7 @@
 .settings-icon {
     cursor: pointer;
     font-size: 24px;
-    color: #F41D91;
+    color: #E91E63;
     width: 32px;
     height: 32px;
     display: flex;
@@ -480,7 +483,7 @@
 .back-button {
     cursor: pointer;
     font-size: 24px;
-    color: #F41D91;
+    color: #E91E63;
     width: 32px;
     height: 32px;
     display: flex;
@@ -516,4 +519,111 @@
     background-position: center;
     vertical-align: middle;
     margin-left: 4px;
+}
+
+.reward-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #E91E63, #E67E22);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-top: 4px;
+}
+
+.result-modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.result-profile-btn {
+    background: linear-gradient(135deg, #E91E63, #E67E22);
+    border: none;
+    padding: 12px 32px;
+    border-radius: 40px;
+    color: white;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.result-profile-btn:active {
+    transform: scale(0.98);
+}
+
+.reward-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #E91E63, #E67E22);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-top: 4px;
+}
+
+.empty-rewards {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+    font-size: 14px;
+}
+
+/* Новые стили для бейджей */
+.new-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #E91E63, #E67E22);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-left: 8px;
+    vertical-align: middle;
+    animation: pulse 1s ease-in-out;
+}
+
+.new-reward {
+    position: relative;
+    animation: fadeIn 0.5s ease;
+}
+
+.achievement-new-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: linear-gradient(135deg, #E91E63, #E67E22);
+    color: white;
+    font-size: 9px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 20px;
+    animation: bounce 0.5s ease;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.7; }
+}
+
+@keyframes bounce {
+    0% { transform: scale(0); }
+    70% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Анимация для новой карточки награды */
+.new-reward {
+    animation: fadeIn 0.5s ease;
+    background: linear-gradient(135deg, rgba(233, 30, 99, 0.05), rgba(230, 126, 34, 0.02));
 }

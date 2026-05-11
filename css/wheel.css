@@ -3,16 +3,12 @@
     padding-bottom: 80px;
 }
 
-.orange-crystal {
-    color: #F2711E;
-    font-weight: 800;
-    font-size: 20px;
-}
-
-.purple-crystal {
-    color: #9C27B0;
-    font-weight: 800;
-    font-size: 20px;
+/* Фирменные цвета */
+:root {
+    --pink: #E91E63;
+    --orange: #E67E22;
+    --purple: #9C27B0;
+    --violet: #E040FB;
 }
 
 .balance-card {
@@ -24,7 +20,7 @@
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(244, 29, 145, 0.1);
+    border: 1px solid rgba(233, 30, 99, 0.1);
 }
 
 .balance-label {
@@ -36,18 +32,13 @@
     display: flex;
     align-items: center;
     gap: 4px;
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 800;
     color: #1a1a1a;
 }
 
-.balance-value .orange-crystal {
-    color: #F2711E;
-    font-size: 24px;
-}
-
 .topup-btn {
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     border: none;
     padding: 8px 20px;
     border-radius: 30px;
@@ -81,7 +72,7 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 0 8px white, 0 0 0 12px #F41D91;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 0 8px white, 0 0 0 12px #E91E63;
     transition: transform 0.3s;
 }
 
@@ -94,7 +85,7 @@
     height: 0;
     border-left: 18px solid transparent;
     border-right: 18px solid transparent;
-    border-top: 35px solid #F41D91;
+    border-top: 35px solid #E91E63;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
     z-index: 10;
 }
@@ -106,7 +97,7 @@
     left: -8px;
     width: 16px;
     height: 16px;
-    background: #F2711E;
+    background: #E67E22;
     border-radius: 50%;
 }
 
@@ -117,56 +108,71 @@
     transform: translate(-50%, -50%);
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     border-radius: 50%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     z-index: 5;
     border: 3px solid white;
 }
 
-.spin-section {
-    background: white;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(244, 29, 145, 0.1);
+/* Две кнопки кручения */
+.spin-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
 }
 
-.spin-btn {
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+.spin-btn-free {
+    flex: 1;
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     border: none;
-    padding: 16px 32px;
+    padding: 16px 20px;
     border-radius: 60px;
     color: white;
     font-family: 'Sofia Sans', sans-serif;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
     transition: transform 0.2s;
-    width: 100%;
-    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
-.spin-btn:active {
+.spin-btn-free:active {
     transform: scale(0.98);
 }
 
-.spin-btn.disabled {
+.spin-btn-paid {
+    flex: 1;
+    background: white;
+    border: 2px solid #E91E63;
+    padding: 16px 20px;
+    border-radius: 60px;
+    color: #E91E63;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.spin-btn-paid:active {
+    transform: scale(0.98);
+}
+
+.spin-btn-paid.disabled,
+.spin-btn-free.disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
 
-.spin-cost {
-    font-size: 14px;
-    color: #666;
-}
-
-.spin-cost .orange-crystal {
-    font-size: 14px;
-    color: #F2711E;
-}
-
+/* Модальные окна */
 .result-modal {
     display: none;
     position: fixed;
@@ -189,7 +195,7 @@
     border-radius: 32px;
     padding: 32px 24px;
     text-align: center;
-    width: 280px;
+    width: 300px;
     position: relative;
     animation: modalPop 0.3s ease;
 }
@@ -214,26 +220,22 @@
     color: #999;
 }
 
-.result-icon {
-    font-size: 64px;
-    margin-bottom: 16px;
-}
-
 .result-modal-content h3 {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 800;
-    color: #F41D91;
-    margin-bottom: 8px;
+    color: #E91E63;
+    margin-bottom: 12px;
 }
 
 .result-modal-content p {
-    font-size: 16px;
-    color: #666;
+    font-size: 18px;
+    color: #333;
     margin-bottom: 24px;
+    font-weight: 500;
 }
 
 .result-btn {
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     border: none;
     padding: 12px 32px;
     border-radius: 40px;
@@ -244,6 +246,7 @@
     cursor: pointer;
 }
 
+/* Пополнение баланса */
 .topup-modal {
     display: none;
     position: fixed;
@@ -296,8 +299,8 @@
 }
 
 .topup-option {
-    background: linear-gradient(135deg, rgba(244, 29, 145, 0.1), rgba(242, 113, 30, 0.05));
-    border: 1px solid rgba(244, 29, 145, 0.2);
+    background: linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(230, 126, 34, 0.05));
+    border: 1px solid rgba(233, 30, 99, 0.2);
     border-radius: 20px;
     padding: 16px 24px;
     text-align: center;
@@ -312,7 +315,7 @@
 .topup-amount {
     font-size: 24px;
     font-weight: 800;
-    color: #F41D91;
+    color: #E91E63;
     display: block;
 }
 
@@ -322,7 +325,7 @@
 
 .topup-confirm-btn {
     width: 100%;
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     border: none;
     padding: 14px;
     border-radius: 40px;
@@ -333,6 +336,7 @@
     cursor: pointer;
 }
 
+/* Модальное окно награды */
 .reward-modal {
     display: none;
     position: fixed;
@@ -371,7 +375,7 @@
 
 .reward-modal-icon i {
     font-size: 64px;
-    color: #F41D91;
+    color: #E91E63;
     margin-bottom: 16px;
 }
 
@@ -384,7 +388,7 @@
 }
 
 .reward-modal-btn {
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     border: none;
     padding: 14px 24px;
     border-radius: 40px;
@@ -403,7 +407,7 @@
 .back-button {
     cursor: pointer;
     font-size: 24px;
-    color: #F41D91;
+    color: #E91E63;
     width: 32px;
     height: 32px;
     display: flex;
@@ -411,7 +415,7 @@
     justify-content: center;
 }
 
-/* Фиолетовый кристалл из изображения */
+/* Кристаллы */
 .crystal-violet {
     width: 20px;
     height: 20px;
@@ -423,7 +427,6 @@
     vertical-align: middle;
 }
 
-/* Оранжевый кристалл из изображения */
 .crystal-orange {
     width: 20px;
     height: 20px;
@@ -435,7 +438,6 @@
     vertical-align: middle;
 }
 
-/* Маленький оранжевый кристалл для баланса */
 .crystal-orange-small {
     width: 24px;
     height: 24px;
@@ -447,14 +449,63 @@
     vertical-align: middle;
 }
 
-/* Крупный оранжевый кристалл */
-.crystal-orange-large {
-    width: 28px;
-    height: 28px;
-    display: inline-block;
-    background-image: url('../images/orangecrystal.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    vertical-align: middle;
+.result-profile-btn {
+    background: linear-gradient(135deg, #E91E63, #E67E22);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 40px;
+    color: white;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 8px;
+    transition: transform 0.2s;
+}
+
+.result-profile-btn:active {
+    transform: scale(0.98);
+}
+
+.result-modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.result-btn {
+    background: linear-gradient(135deg, #E91E63, #E67E22);
+    border: none;
+    padding: 12px 32px;
+    border-radius: 40px;
+    color: white;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.result-profile-btn {
+    background: linear-gradient(135deg, #E91E63, #E67E22);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 40px;
+    color: white;
+    font-family: 'Sofia Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.2s;
+}
+
+.result-profile-btn:active {
+    transform: scale(0.98);
+}
+
+.result-modal-content {
+    text-align: center;
 }

@@ -24,9 +24,9 @@
 }
 
 .tab-btn.active {
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     color: white;
-    box-shadow: 0 4px 12px rgba(244, 29, 145, 0.3);
+    box-shadow: 0 4px 12px rgba(233, 30, 99, 0.25);
 }
 
 /* Карточка челленджа */
@@ -44,25 +44,39 @@
     transform: scale(0.98);
 }
 
-/* Шапка карточки с градиентом */
+/* Шапка карточки — ОДНОТОННЫЕ ЦВЕТА */
 .challenge-header {
     padding: 20px 20px 16px 20px;
 }
 
+/* Искатели красоты — фиолетовый */
 .challenge-header.pink-purple {
-    background: linear-gradient(135deg, #F41D91, #9C27B0);
+    background: #9C27B0;
 }
 
+/* Путешествие по ярмарке — розовый */
 .challenge-header.orange-pink {
-    background: linear-gradient(135deg, #F2711E, #F41D91);
+    background: #E91E63;
 }
 
+/* Оранжево-фиолетовый (для других карточек) — тёмно-розовый */
 .challenge-header.orange-purple {
-    background: linear-gradient(135deg, #F2711E, #9C27B0);
+    background: #b61259;
 }
 
+/* Гастрономический тур — оранжевый */
+.challenge-header.purple-orange {
+    background: #E67E22;
+}
+
+/* Посети 5 концертов — фиолетовый */
 .challenge-header.vibrant-purple {
-    background: linear-gradient(135deg, #E040FB, #7C4DFF);
+    background: #9C27B0;
+}
+
+/* Пора любить — розовый */
+.challenge-header.pink-red {
+    background: #E91E63;
 }
 
 .challenge-title {
@@ -111,7 +125,7 @@
 
 .date-item i {
     font-size: 18px;
-    color: #F41D91;
+    color: #E91E63;
 }
 
 .date-item span {
@@ -140,8 +154,8 @@
 
 .progress-percent-value {
     font-weight: 700;
-    color: #F41D91;
-    background: rgba(244, 29, 145, 0.1);
+    color: #E91E63;
+    background: rgba(233, 30, 99, 0.1);
     padding: 2px 8px;
     border-radius: 20px;
 }
@@ -155,7 +169,7 @@
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #F41D91, #F2711E);
+    background: linear-gradient(90deg, #E91E63, #E67E22);
     border-radius: 10px;
     transition: width 0.3s ease;
 }
@@ -194,17 +208,17 @@
 }
 
 .reward-item i:first-child {
-    color: #F41D91;
+    color: #E91E63;
 }
 
 .reward-main {
-    background: linear-gradient(135deg, rgba(244, 29, 145, 0.1), rgba(156, 39, 176, 0.1));
+    background: linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(156, 39, 176, 0.1));
     padding: 6px 12px;
     border-radius: 30px;
 }
 
 .trophy-icon {
-    color: #F41D91 !important;
+    color: #E91E63 !important;
 }
 
 .reward-text {
@@ -233,7 +247,7 @@
 
 /* Кнопка "Забрать награду" */
 .claim-btn {
-    background: linear-gradient(135deg, #F41D91, #E91E63);
+    background: linear-gradient(135deg, #eb1362, #eb1362);
     border: none;
     padding: 8px 20px;
     border-radius: 40px;
@@ -255,7 +269,7 @@
 
 /* Кнопка "Участвовать" */
 .join-btn {
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     border: none;
     padding: 8px 20px;
     border-radius: 40px;
@@ -318,7 +332,7 @@
 .back-button {
     cursor: pointer;
     font-size: 24px;
-    color: #F41D91;
+    color: #E91E63;
     width: 32px;
     height: 32px;
     display: flex;
@@ -335,7 +349,7 @@
 .filter-icon {
     cursor: pointer;
     font-size: 24px;
-    color: #F41D91;
+    color: #E91E63;
     width: 32px;
     height: 32px;
     display: flex;
@@ -348,7 +362,7 @@
     transform: scale(0.9);
 }
 
-/* Модальное окно фильтров */
+/* Остальные стили фильтров без изменений... */
 .filter-modal {
     display: none;
     position: fixed;
@@ -404,7 +418,7 @@
 
 .clear-filters {
     font-size: 14px;
-    color: #F41D91;
+    color: #E91E63;
     cursor: pointer;
     font-weight: 500;
 }
@@ -439,8 +453,8 @@
 }
 
 .checkbox.checked {
-    background: linear-gradient(135deg, #F41D91, #F2711E);
-    border-color: #F41D91;
+    background: linear-gradient(135deg, #E91E63, #E67E22);
+    border-color: #E91E63;
     position: relative;
 }
 
@@ -500,13 +514,13 @@
 }
 
 .dropdown-item.selected {
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     color: white;
 }
 
 .apply-filters-btn {
     width: 100%;
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     border: none;
     padding: 16px;
     border-radius: 60px;
@@ -546,4 +560,214 @@
     .challenge-title h3 {
         font-size: 16px;
     }
+}
+
+/* ========== ПОСЛЕДОВАТЕЛЬНЫЕ ЗАДАНИЯ (ДЛЯ ИСКАТЕЛИ КРАСОТЫ) ========== */
+/* Номера заданий в кружках — фиолетовый градиент */
+.task-number {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #9C27B0, #7B1FA2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+    font-size: 22px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(156, 39, 176, 0.3);
+}
+
+.task-item-sequential.completed .task-number {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+}
+
+.task-item-sequential.locked .task-number {
+    background: #ccc;
+    box-shadow: none;
+}
+
+.task-name-large {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tasks-list-sequential {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.task-item-sequential {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 20px;
+    transition: all 0.2s;
+}
+
+/* Доступное задание — фиолетовая рамка */
+.task-item-sequential.available {
+    background: linear-gradient(135deg, rgba(156, 39, 176, 0.1), rgba(123, 31, 162, 0.05));
+    border: 1px solid #9C27B0;
+    cursor: pointer;
+}
+
+.task-item-sequential.available:active {
+    transform: scale(0.98);
+}
+
+.task-item-sequential.completed {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(76, 175, 80, 0.05));
+    border: 1px solid #4CAF50;
+}
+
+.task-item-sequential.locked {
+    background: #f5f5f5;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.task-info-full {
+    flex: 1;
+}
+
+.task-address {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 6px;
+}
+
+.task-description {
+    font-size: 13px;
+    color: #999;
+    line-height: 1.4;
+}
+
+.task-status-icon {
+    width: 32px;
+    text-align: center;
+}
+
+.task-status-icon i {
+    font-size: 28px;
+}
+
+.completed-badge {
+    background: #4CAF50;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.locked-badge {
+    background: #999;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.available-badge {
+    background: linear-gradient(135deg, #9C27B0, #7B1FA2);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+/* Минималистичные карточки */
+.tasks-minimal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-minimal-card {
+    background: white;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f0f0f0;
+    transition: all 0.2s;
+}
+
+.task-minimal-card.available {
+    background: linear-gradient(135deg, #fff, #fef9ff);
+    border-color: #9C27B0;
+    cursor: pointer;
+}
+
+.task-minimal-card.available:active {
+    transform: scale(0.98);
+    background: #f3e5f5;
+}
+
+.task-minimal-card.completed {
+    background: linear-gradient(135deg, #f8fff8, #f0fff0);
+    border-color: #4CAF50;
+}
+
+.task-minimal-card.locked {
+    background: #fafafa;
+    border-color: #eee;
+    opacity: 0.7;
+}
+
+.task-minimal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.task-minimal-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.task-minimal-card.completed .task-minimal-name {
+    color: #4CAF50;
+}
+
+.task-minimal-card.locked .task-minimal-name {
+    color: #999;
+}
+
+.task-minimal-lock {
+    font-size: 14px;
+    color: #999;
+}
+
+.task-minimal-check {
+    font-size: 16px;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.task-minimal-status {
+    font-size: 12px;
+    color: #9C27B0;
+}
+
+.task-minimal-card.locked .task-minimal-status {
+    color: #999;
+}
+
+.task-minimal-card.completed .task-minimal-status {
+    color: #4CAF50;
 }

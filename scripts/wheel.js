@@ -1,22 +1,22 @@
 const segments = [
-    { value: "Бесплатная крутка", type: "free", color: "#F41D91", textColor: "white" },
+    { value: "Бесплатная крутка", type: "free", color: "#E91E63", textColor: "white" },
     { value: "300", type: "purple", color: "#9C27B0", textColor: "white", amount: 300, crystalType: "violet" },
-    { value: "Скидка 10%", type: "discount", color: "#F2711E", textColor: "white" },
+    { value: "Скидка 10%", type: "discount", color: "#E67E22", textColor: "white" },
     { value: "500", type: "orange", color: "#E040FB", textColor: "white", amount: 500, crystalType: "orange" },
-    { value: "Попробуй еще раз", type: "lose", color: "#F41D91", textColor: "white" },
-    { value: "400", type: "purple", color: "#F2711E", textColor: "white", amount: 400, crystalType: "violet" },
+    { value: "Попробуй еще раз", type: "lose", color: "#E91E63", textColor: "white" },
+    { value: "400", type: "purple", color: "#E67E22", textColor: "white", amount: 400, crystalType: "violet" },
     { value: "Билет на выставку", type: "ticket", color: "#9C27B0", textColor: "white" },
     { value: "200", type: "orange", color: "#E040FB", textColor: "white", amount: 200, crystalType: "orange" }
 ];
 
 let currentBalance = 600;
+let freeSpinsLeft = 1;
 let isSpinning = false;
 let canvas = null;
 let ctx = null;
 let currentAngle = 0;
 let selectedTopupAmount = 0;
 
-// Загрузка изображений кристаллов
 let violetCrystalImg = null;
 let orangeCrystalImg = null;
 
@@ -40,7 +40,6 @@ function loadImages() {
         violetCrystalImg.src = '../images/violetcrystal.png';
         orangeCrystalImg.src = '../images/orangecrystal.png';
         
-        // Таймаут на случай ошибки загрузки
         setTimeout(() => resolve(), 2000);
     });
 }
@@ -51,6 +50,22 @@ function initWheel() {
     loadImages().then(() => {
         drawWheel();
     });
+    updateFreeSpinsUI();
+}
+
+function updateFreeSpinsUI() {
+    const freeSpinBtn = document.getElementById('spinBtnFree');
+    if (freeSpinBtn) {
+        if (freeSpinsLeft > 0) {
+            freeSpinBtn.innerHTML = `<i class="material-symbols-outlined">casino</i> Бесплатная крутка (${freeSpinsLeft})`;
+            freeSpinBtn.disabled = false;
+            freeSpinBtn.classList.remove('disabled');
+        } else {
+            freeSpinBtn.innerHTML = `<i class="material-symbols-outlined">casino</i> Бесплатных круток нет`;
+            freeSpinBtn.disabled = true;
+            freeSpinBtn.classList.add('disabled');
+        }
+    }
 }
 
 function drawWheel() {
@@ -85,59 +100,44 @@ function drawWheel() {
         const segment = segments[i];
         
         if (segment.type === "purple") {
-            // Рисуем число
             ctx.fillStyle = "white";
-            ctx.font = 'bold 20px "Sofia Sans"';
+            ctx.font = 'bold 22px "Sofia Sans"';
             ctx.fillText(segment.value, radius * 0.62, 0);
-            // Рисуем фиолетовый кристалл (изображение)
             if (violetCrystalImg && violetCrystalImg.complete) {
-                ctx.drawImage(violetCrystalImg, radius * 0.62 + 25, -12, 24, 24);
-            } else {
-                ctx.fillStyle = "#E040FB";
-                ctx.font = 'bold 22px "Sofia Sans"';
-                ctx.fillText("⬟", radius * 0.62 + 28, 0);
+                ctx.drawImage(violetCrystalImg, radius * 0.62 + 30, -14, 28, 28);
             }
         } 
         else if (segment.type === "orange") {
-            // Рисуем число
             ctx.fillStyle = "white";
-            ctx.font = 'bold 20px "Sofia Sans"';
+            ctx.font = 'bold 22px "Sofia Sans"';
             ctx.fillText(segment.value, radius * 0.62, 0);
-            // Рисуем оранжевый кристалл (изображение)
             if (orangeCrystalImg && orangeCrystalImg.complete) {
-                ctx.drawImage(orangeCrystalImg, radius * 0.62 + 25, -12, 24, 24);
-            } else {
-                ctx.fillStyle = "#F2711E";
-                ctx.font = 'bold 22px "Sofia Sans"';
-                ctx.fillText("⬟", radius * 0.62 + 28, 0);
+                ctx.drawImage(orangeCrystalImg, radius * 0.62 + 30, -14, 28, 28);
             }
         }
         else if (segment.value === "Бесплатная крутка") {
             ctx.fillStyle = "white";
-            ctx.font = 'bold 12px "Sofia Sans"';
+            ctx.font = 'bold 13px "Sofia Sans"';
             ctx.fillText("Бесплатная", radius * 0.68, -10);
-            ctx.font = 'bold 12px "Sofia Sans"';
             ctx.fillText("крутка", radius * 0.68, 6);
         }
         else if (segment.value === "Скидка 10%") {
             ctx.fillStyle = "white";
-            ctx.font = 'bold 20px "Sofia Sans"';
+            ctx.font = 'bold 22px "Sofia Sans"';
             ctx.fillText("10%", radius * 0.68, -5);
-            ctx.font = 'bold 12px "Sofia Sans"';
+            ctx.font = 'bold 13px "Sofia Sans"';
             ctx.fillText("скидка", radius * 0.68, 18);
         }
         else if (segment.value === "Попробуй еще раз") {
             ctx.fillStyle = "white";
-            ctx.font = 'bold 11px "Sofia Sans"';
+            ctx.font = 'bold 12px "Sofia Sans"';
             ctx.fillText("Попробуй", radius * 0.68, -10);
-            ctx.font = 'bold 11px "Sofia Sans"';
             ctx.fillText("еще раз", radius * 0.68, 6);
         }
         else if (segment.value === "Билет на выставку") {
             ctx.fillStyle = "white";
-            ctx.font = 'bold 11px "Sofia Sans"';
+            ctx.font = 'bold 12px "Sofia Sans"';
             ctx.fillText("Билет на", radius * 0.68, -10);
-            ctx.font = 'bold 11px "Sofia Sans"';
             ctx.fillText("выставку", radius * 0.68, 6);
         }
         
@@ -153,8 +153,8 @@ function drawCenterGradient() {
     const radius = 25;
     
     const gradient = ctx.createLinearGradient(centerX - radius, centerY - radius, centerX + radius, centerY + radius);
-    gradient.addColorStop(0, '#F41D91');
-    gradient.addColorStop(1, '#F2711E');
+    gradient.addColorStop(0, '#E91E63');
+    gradient.addColorStop(1, '#E67E22');
     
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
@@ -165,7 +165,19 @@ function drawCenterGradient() {
     ctx.stroke();
 }
 
-function spinWheel() {
+function spinWheelFree() {
+    if (isSpinning) return;
+    if (freeSpinsLeft <= 0) {
+        alert('У вас закончились бесплатные крутки! Используйте платную крутку.');
+        return;
+    }
+    
+    freeSpinsLeft--;
+    updateFreeSpinsUI();
+    startSpin('free');
+}
+
+function spinWheelPaid() {
     if (isSpinning) return;
     
     const spinCost = 300;
@@ -176,17 +188,22 @@ function spinWheel() {
     
     currentBalance -= spinCost;
     updateBalanceDisplay();
-    
+    startSpin('paid');
+}
+
+function startSpin(type) {
     isSpinning = true;
-    const spinButton = document.getElementById('spinBtn');
-    spinButton.classList.add('disabled');
-    spinButton.disabled = true;
+    const spinButtonFree = document.getElementById('spinBtnFree');
+    const spinButtonPaid = document.getElementById('spinBtnPaid');
     
-    const targetPrizeIndex = 3;
+    if (spinButtonFree) spinButtonFree.disabled = true;
+    if (spinButtonPaid) spinButtonPaid.disabled = true;
+    
+    const targetPrizeIndex = Math.floor(Math.random() * segments.length);
     const targetAngle = calculateTargetAngle(targetPrizeIndex);
     const spinAngle = 360 * 5 + targetAngle;
     const startTime = performance.now();
-    const duration = 3000;
+    const duration = 4000;
     
     function animateSpin(currentTime) {
         const elapsed = currentTime - startTime;
@@ -201,11 +218,15 @@ function spinWheel() {
             requestAnimationFrame(animateSpin);
         } else {
             const prize = segments[targetPrizeIndex];
-            processPrize(prize);
+            processPrize(prize, type);
             
             isSpinning = false;
-            spinButton.classList.remove('disabled');
-            spinButton.disabled = false;
+            if (spinButtonFree) spinButtonFree.disabled = false;
+            if (spinButtonPaid) spinButtonPaid.disabled = false;
+            
+            if (type === 'free') {
+                updateFreeSpinsUI();
+            }
         }
     }
     
@@ -219,44 +240,148 @@ function calculateTargetAngle(segmentIndex) {
     return (360 - targetAngle) % 360;
 }
 
-function processPrize(prize) {
+function processPrize(prize, spinType) {
     let rewardMessage = '';
+    let showProfileButton = false;
+    let isLose = false;
     
     if (prize.type === "free") {
-        rewardMessage = "Бесплатная крутка! Стоимость списана не будет!";
-        currentBalance += 300;
-        updateBalanceDisplay();
+        rewardMessage = "Бесплатная крутка! +1 дополнительное вращение!";
+        freeSpinsLeft++;
+        updateFreeSpinsUI();
     } else if (prize.type === "purple") {
-        currentBalance += prize.amount;
+        let rewardAmount = prize.amount;
+        currentBalance += rewardAmount;
         updateBalanceDisplay();
-        rewardMessage = `Вы выиграли ${prize.amount} фиолетовых кристаллов!`;
+        rewardMessage = `Вы выиграли ${rewardAmount} фиолетовых кристаллов!`;
+        addVioletCrystals(rewardAmount);
+        showProfileButton = true;
     } else if (prize.type === "orange") {
-        currentBalance += prize.amount;
+        let rewardAmount = prize.amount;
+        currentBalance += rewardAmount;
         updateBalanceDisplay();
-        rewardMessage = `Вы выиграли ${prize.amount} оранжевых кристаллов!`;
+        rewardMessage = `Вы выиграли ${rewardAmount} оранжевых кристаллов!`;
     } else if (prize.type === "discount") {
-        rewardMessage = "Скидка 10% от партнеров добавлена в профиль!";
-        saveDiscount();
+        rewardMessage = "Скидка 10% на чек в ресторане 'Прибой' до 25.08.2026 добавлена в профиль!";
+        saveDiscountReward();
+        showProfileButton = true;
     } else if (prize.type === "lose") {
-        rewardMessage = "Попробуйте еще раз! В следующий раз повезет!";
+        rewardMessage = "Попробуйте еще раз!";
+        isLose = true;
     } else if (prize.type === "ticket") {
-        rewardMessage = "Билет на выставку добавлен в профиль!";
-        saveTicket();
+        rewardMessage = "Билет на выставку 'Третье измерение' до 25.08.2026 добавлен в профиль!";
+        saveTicketReward();
+        showProfileButton = true;
     }
     
-    showRewardModal(rewardMessage);
+    showResultModal(rewardMessage, showProfileButton, isLose);
 }
 
-function saveDiscount() {
-    const discounts = JSON.parse(localStorage.getItem('user_discounts') || '[]');
-    discounts.push({ title: "Скидка 10% от партнеров", date: new Date().toLocaleDateString() });
-    localStorage.setItem('user_discounts', JSON.stringify(discounts));
+function addVioletCrystals(amount) {
+    let violetBalance = parseInt(localStorage.getItem('violet_crystals') || '0');
+    violetBalance += amount;
+    localStorage.setItem('violet_crystals', violetBalance);
+    
+    if (window.updateVioletBalance) {
+        window.updateVioletBalance(amount);
+    }
 }
 
-function saveTicket() {
-    const tickets = JSON.parse(localStorage.getItem('user_tickets') || '[]');
-    tickets.push({ title: "Билет на выставку", date: new Date().toLocaleDateString() });
-    localStorage.setItem('user_tickets', JSON.stringify(tickets));
+function saveDiscountReward() {
+    const rewards = JSON.parse(localStorage.getItem('user_rewards') || '[]');
+    rewards.push({
+        id: Date.now(),
+        title: "Скидка 10% на чек в ресторане 'Прибой'",
+        date: "До 25.08.2026",
+        tag: "Лотерея",
+        type: "discount",
+        icon: "local_offer",
+        used: false
+    });
+    localStorage.setItem('user_rewards', JSON.stringify(rewards));
+}
+
+function saveTicketReward() {
+    const rewards = JSON.parse(localStorage.getItem('user_rewards') || '[]');
+    rewards.push({
+        id: Date.now(),
+        title: "Билет на выставку 'Третье измерение'",
+        date: "До 25.08.2026",
+        tag: "Лотерея",
+        type: "ticket",
+        icon: "confirmation_number",
+        used: false
+    });
+    localStorage.setItem('user_rewards', JSON.stringify(rewards));
+}
+
+function showResultModal(message, showProfileButton = false, isLose = false) {
+    const modal = document.getElementById('resultModal');
+    const messageElement = document.getElementById('resultMessage');
+    const titleElement = document.getElementById('resultTitle');
+    const iconElement = document.getElementById('resultIcon');
+    
+    // Убираем эмодзи
+    if (iconElement) iconElement.style.display = 'none';
+    
+    messageElement.innerHTML = message.replace(/\n/g, '<br>');
+    
+    if (isLose) {
+        titleElement.textContent = 'Попробуйте снова';
+    } else {
+        titleElement.textContent = 'Поздравляем!';
+    }
+    
+    // Получаем кнопку "Отлично!"
+    const okBtn = document.querySelector('.result-btn');
+    
+    if (showProfileButton) {
+        // Скрываем старую кнопку
+        if (okBtn) okBtn.style.display = 'none';
+        
+        // Создаем или показываем кнопку "Посмотреть профиль"
+        let profileBtn = document.querySelector('.result-profile-btn');
+        if (!profileBtn) {
+            profileBtn = document.createElement('button');
+            profileBtn.className = 'result-profile-btn';
+            profileBtn.innerHTML = 'Посмотреть профиль';
+            profileBtn.onclick = () => {
+                closeResultModal();
+                window.location.href = 'profile.html';
+            };
+            modal.querySelector('.result-modal-content').appendChild(profileBtn);
+            profileBtn.style.marginTop = '12px';
+        } else {
+            profileBtn.style.display = 'block';
+        }
+    } else {
+        // Показываем старую кнопку
+        if (okBtn) {
+            okBtn.style.display = 'block';
+            okBtn.style.margin = '0 auto';
+        }
+        
+        // Скрываем кнопку профиля если есть
+        const profileBtn = document.querySelector('.result-profile-btn');
+        if (profileBtn) profileBtn.style.display = 'none';
+    }
+    
+    modal.classList.add('show');
+}
+
+function closeResultModal() {
+    const modal = document.getElementById('resultModal');
+    modal.classList.remove('show');
+    
+    // Возвращаем стандартный вид
+    const okBtn = document.querySelector('.result-btn');
+    if (okBtn) {
+        okBtn.style.display = 'block';
+        okBtn.style.margin = '0 auto';
+    }
+    
+    const profileBtn = document.querySelector('.result-profile-btn');
+    if (profileBtn) profileBtn.style.display = 'none';
 }
 
 function showRewardModal(message) {
@@ -284,8 +409,12 @@ function updateBalanceDisplay() {
 }
 
 function showTopupModal() {
+    selectedTopupAmount = 0;
     const modal = document.getElementById('topupModal');
     modal.classList.add('show');
+    
+    const options = document.querySelectorAll('.topup-option');
+    options.forEach(opt => opt.style.border = '1px solid rgba(233, 30, 99, 0.2)');
 }
 
 function closeTopupModal() {
@@ -296,8 +425,8 @@ function closeTopupModal() {
 function selectTopup(amount) {
     selectedTopupAmount = amount;
     const options = document.querySelectorAll('.topup-option');
-    options.forEach(opt => opt.style.border = '1px solid rgba(244, 29, 145, 0.2)');
-    event.currentTarget.style.border = '2px solid #F41D91';
+    options.forEach(opt => opt.style.border = '1px solid rgba(233, 30, 99, 0.2)');
+    event.currentTarget.style.border = '2px solid #E91E63';
 }
 
 function confirmTopup() {
@@ -305,10 +434,10 @@ function confirmTopup() {
         currentBalance += selectedTopupAmount;
         updateBalanceDisplay();
         closeTopupModal();
+        alert(`Баланс пополнен на ${selectedTopupAmount} оранжевых кристаллов!`);
         selectedTopupAmount = 0;
-        alert(`✅ Баланс пополнен на ${selectedTopupAmount} кристаллов`);
     } else {
-        alert('❌ Выберите сумму пополнения');
+        alert('Пожалуйста, выберите сумму пополнения');
     }
 }
 

@@ -11,7 +11,6 @@
 </head>
 <body>
     <div class="app-container">
-        <!-- Шапка -->
         <header class="main-header">
             <div class="back-button" onclick="history.back()">
                 <i class="material-symbols-outlined">arrow_back</i>
@@ -22,9 +21,7 @@
             </div>
         </header>
 
-        <!-- Контент -->
         <main class="content-scroll">
-            <!-- Единый блок профиля -->
             <div class="profile-card">
                 <div class="profile-header">
                     <div class="profile-avatar">
@@ -46,7 +43,6 @@
                 </div>
             </div>
 
-            <!-- Достижения -->
             <div class="achievements-section">
                 <div class="section-header">
                     <h3>Достижения</h3>
@@ -80,7 +76,6 @@
                 </div>
             </div>
 
-            <!-- Пригласи друзей -->
             <div class="invite-section">
                 <h3>Пригласи друзей</h3>
                 <p>Получи 300 <span class="crystal-icon-img"></span> за каждого друга</p>
@@ -96,61 +91,16 @@
                 </div>
             </div>
 
-            <!-- Награды -->
             <div class="rewards-section">
                 <div class="section-header">
                     <i class="material-symbols-outlined rewards-header-icon">emoji_events</i>
                     <h3>Награды</h3>
                 </div>
-                <div class="rewards-list">
-                    <div class="reward-card">
-                        <div class="reward-info">
-                            <div class="reward-icon">
-                                <i class="material-symbols-outlined">local_offer</i>
-                            </div>
-                            <div class="reward-details">
-                                <div class="reward-title">Скидка 15% на выставку "Цой"</div>
-                                <div class="reward-date">До 25.03.2026</div>
-                            </div>
-                        </div>
-                        <button class="reward-action-btn" onclick="applyReward(1)">
-                            Применить
-                        </button>
-                    </div>
-                    
-                    <div class="reward-card">
-                        <div class="reward-info">
-                            <div class="reward-icon">
-                                <i class="material-symbols-outlined">restaurant</i>
-                            </div>
-                            <div class="reward-details">
-                                <div class="reward-title">Бесплатный десерт в "Море"</div>
-                                <div class="reward-date">До 15.03.2026</div>
-                            </div>
-                        </div>
-                        <button class="reward-action-btn" onclick="applyReward(2)">
-                            Применить
-                        </button>
-                    </div>
-                    
-                    <div class="reward-card used">
-                        <div class="reward-info">
-                            <div class="reward-icon">
-                                <i class="material-symbols-outlined">movie</i>
-                            </div>
-                            <div class="reward-details">
-                                <div class="reward-title">Билет в кино</div>
-                                <div class="reward-date">До 11.03.2026</div>
-                            </div>
-                        </div>
-                        <button class="reward-action-btn used-btn" disabled>
-                            Использована
-                        </button>
-                    </div>
+                <div class="rewards-list" id="rewardsList">
+                    <!-- Награды будут загружены динамически -->
                 </div>
             </div>
 
-            <!-- Как заработать награды -->
             <div class="earn-section">
                 <h3>Как заработать награды</h3>
                 <div class="earn-list">
@@ -166,7 +116,6 @@
             </div>
         </main>
 
-        <!-- Модальное окно QR-кода для приглашения -->
         <div class="qr-modal" id="qrModal">
             <div class="qr-modal-content">
                 <div class="qr-modal-close" onclick="closeQrModal()">✕</div>
@@ -191,7 +140,6 @@
             </div>
         </div>
 
-        <!-- Нижняя навигация -->
         <footer class="bottom-nav-icons">
             <div class="nav-icon-item" onclick="toggleSideMenu()">
                 <i class="material-symbols-outlined">menu</i>
@@ -212,28 +160,26 @@
     </div>
 
     <script src="../scripts/profile.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navItems = document.querySelectorAll('.nav-icon-item');
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            if (currentPage === 'profile.html') {
+                const profileNav = document.querySelector('.nav-icon-item:last-child');
+                if (profileNav) profileNav.classList.add('active');
+            } else if (currentPage === 'index.html' || currentPage === '') {
+                const homeNav = document.querySelector('.nav-icon-item:nth-child(2)');
+                if (homeNav) homeNav.classList.add('active');
+            } else if (currentPage === 'challenges.html') {
+                const challengesNav = document.querySelector('.nav-icon-item:nth-child(1)');
+                if (challengesNav) challengesNav.classList.add('active');
+            }
+        });
+    </script>
 </body>
 </html>
-
-<script>
-    // Подсветка активного пункта меню
-    document.addEventListener('DOMContentLoaded', () => {
-        const currentPage = window.location.pathname.split('/').pop();
-        const navItems = document.querySelectorAll('.nav-icon-item');
-        
-        navItems.forEach(item => {
-            item.classList.remove('active');
-        });
-        
-        if (currentPage === 'profile.html') {
-            const profileNav = document.querySelector('.nav-icon-item:last-child');
-            if (profileNav) profileNav.classList.add('active');
-        } else if (currentPage === 'index.html' || currentPage === '') {
-            const homeNav = document.querySelector('.nav-icon-item:nth-child(2)');
-            if (homeNav) homeNav.classList.add('active');
-        } else if (currentPage === 'challenges.html') {
-            const challengesNav = document.querySelector('.nav-icon-item:nth-child(1)');
-            if (challengesNav) challengesNav.classList.add('active');
-        }
-    });
-</script>

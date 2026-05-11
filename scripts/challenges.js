@@ -17,7 +17,7 @@ function checkGastroChallengeParticipation() {
         
         const exists = challengesData.my_challenges.some(c => c.title === "Гастрономический тур");
         if (!exists) {
-            challengesData.my_challenges.push({
+            challengesData.my_challenges.unshift({
                 id: 3,
                 title: "Гастрономический тур",
                 description: "Посети 5 ресторанов в креативных кластерах",
@@ -31,7 +31,7 @@ function checkGastroChallengeParticipation() {
                 current: completedTasks,
                 total: 5,
                 completed: completedTasks === 5,
-                gradient: "orange-purple"
+                gradient: "purple-orange" 
             });
         } else {
             const index = challengesData.my_challenges.findIndex(c => c.title === "Гастрономический тур");
@@ -40,6 +40,11 @@ function checkGastroChallengeParticipation() {
                 challengesData.my_challenges[index].current = completedTasks;
                 challengesData.my_challenges[index].completed = completedTasks === 5;
             }
+        }
+        
+        const allChallenge = challengesData.all_challenges.find(c => c.title === "Гастрономический тур");
+        if (allChallenge && !allChallenge.joined) {
+            allChallenge.joined = true;
         }
     }
 }
@@ -61,7 +66,7 @@ function checkBeautyChallengeCompletion() {
             challengesData.my_challenges.push({
                 id: 1,
                 title: "Искатели красоты",
-                description: "Отправляйся в увлекательное путешествие по Брусницы Лофту",
+                description: "Отправляйся в увлекательное путешествие по Брусницын Лофту",
                 start_date: "21.03.2026",
                 end_date: "22.03.2026",
                 duration: "2 дня",
@@ -106,7 +111,7 @@ function useDemoData() {
         {
             id: 1,
             title: "Искатели красоты",
-            description: "Отправляйся в увлекательное путешествие по Брусницы Лофту",
+            description: "Отправляйся в увлекательное путешествие по Брусницын Лофту",
             start_date: "21.03.2026",
             end_date: "22.03.2026",
             duration: "2 дня",
@@ -122,7 +127,7 @@ function useDemoData() {
         {
             id: 2,
             title: "Путешествие по ярмарке",
-            description: "Посети всех резидентов на ярмарке в Сейкабеле",
+            description: "Посети всех резидентов на ярмарке в Севкабеле",
             start_date: "1.03.2026",
             end_date: "15.03.2026",
             duration: "14 дней",
@@ -149,7 +154,7 @@ function useDemoData() {
             current: null,
             total: null,
             completed: false,
-            gradient: "orange-purple"
+            gradient: "purple-orange"
         }
     ];
     
@@ -157,7 +162,7 @@ function useDemoData() {
         {
             id: 4,
             title: "Пора любить",
-            description: "Устрой романтическое свидание в Брусницы Лофт и посети уютные локации",
+            description: "Устрой романтическое свидание в Брусницын Лофт и посети уютные локации",
             start_date: "14.02.2026",
             end_date: "16.02.2026",
             duration: "2 дня",
@@ -173,7 +178,7 @@ function useDemoData() {
         {
             id: 5,
             title: "Путешествие по ярмарке",
-            description: "Посети всех резидентов на ярмарке в Сейкабеле",
+            description: "Посети всех резидентов на ярмарке в Севкабеле",
             start_date: "1.03.2026",
             end_date: "15.03.2026",
             duration: "14 дней",
@@ -216,10 +221,10 @@ function getGradientClass(gradient) {
     const gradients = {
         'pink-purple': 'pink-purple',
         'orange-pink': 'orange-pink',
-        'orange-purple': 'orange-purple',
+        'purple-orange': 'purple-orange', 
         'vibrant-purple': 'vibrant-purple'
     };
-    return gradients[gradient] || 'pink-purple';
+    return gradients[gradient] || 'purple-orange';
 }
 
 // Отображение всех челленджей
@@ -229,7 +234,10 @@ function renderAllChallenges() {
     
     const allChallenges = challengesData.all_challenges;
     
-    if (allChallenges.length === 0) {
+    // Фильтруем: показываем только те, в которых пользователь НЕ участвует
+    const availableChallenges = allChallenges.filter(challenge => !challenge.joined);
+    
+    if (availableChallenges.length === 0) {
         container.innerHTML = `
             <div class="empty-state">
                 <i class="material-symbols-outlined">emoji_events</i>
@@ -239,7 +247,7 @@ function renderAllChallenges() {
         return;
     }
     
-    container.innerHTML = allChallenges.map(challenge => createChallengeCard(challenge, false)).join('');
+    container.innerHTML = availableChallenges.map(challenge => createChallengeCard(challenge, false)).join('');
     
     document.querySelectorAll('#allChallenges .join-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -322,7 +330,7 @@ function createChallengeCard(challenge, isMyChallenge = false) {
             <div class="progress-bar">
                 <div class="progress-fill" style="width: ${challenge.progress}%"></div>
             </div>
-            ${challenge.progress === 100 ? '<div class="progress-complete">Выполнено! 🎉</div>' : ''}
+            ${challenge.progress === 100 ? '' : ''}
         </div>
     ` : '';
     

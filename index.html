@@ -10,8 +10,9 @@
 </head>
 <body>
     <script>
-        // Очищаем всё при каждой загрузке страницы
-        localStorage.clear();
+    // Очищаем localStorage для тестирования (прогресс, участие в челленджах)
+    // sessionStorage НЕ очищается — он хранит данные только для текущей сессии
+    localStorage.clear();
     </script>
 
     <div class="app-container">
@@ -22,74 +23,58 @@
             <div class="header-placeholder"></div>
         </header>
 
-        <!-- Боковое меню -->
-        <div class="side-menu" id="sideMenu">
-            <div class="side-menu-header">
-                <div class="close-menu" onclick="toggleSideMenu()">✕</div>
-                <div class="user-info">
-                    <div class="user-avatar">
-                        <span class="avatar-initials">ММ</span>
-                    </div>
-                    <div class="user-details">
-                        <div class="user-name">Мария Малинина</div>
-                        <div class="user-status">Активна сейчас</div>
-                    </div>
-                </div>
+       <!-- Боковое меню -->
+<div class="side-menu" id="sideMenu">
+    <div class="side-menu-header">
+        <div class="close-menu" onclick="toggleSideMenu()">✕</div>
+        <div class="user-info">
+            <div class="user-avatar">
+                <span class="avatar-initials">ММ</span>
             </div>
-            
-            <nav class="side-menu-nav">
-                <div class="side-menu-item" onclick="handleMenuClick('Сообщества')">
-                    <i class="material-symbols-outlined">groups</i>
-                    <span>Сообщества</span>
-                </div>
-                <div class="side-menu-item" onclick="handleMenuClick('Чаты')">
-                    <i class="material-symbols-outlined">chat</i>
-                    <span>Чаты</span>
-                </div>
-                <div class="side-menu-item" onclick="handleMenuClick('Друзья')">
-                    <i class="material-symbols-outlined">people</i>
-                    <span>Друзья</span>
-                </div>
-                <div class="side-menu-item" onclick="handleMenuClick('Мои анкеты')">
-                    <i class="material-symbols-outlined">description</i>
-                    <span>Мои анкеты</span>
-                </div>
-                
-                <div class="side-menu-divider"></div>
-                
-                <div class="side-menu-item" onclick="window.location.href='pages/challenges.html'">
-                    <i class="material-symbols-outlined">emoji_events</i>
-                    <span>Челленджи</span>
-                </div>
-                <div class="side-menu-item" onclick="window.location.href='pages/challenges.html?tab=my'">
-                    <i class="material-symbols-outlined">task_alt</i>
-                    <span>Мои челленджи</span>
-                </div>
-                
-                <div class="side-menu-divider"></div>
-                
-                <div class="side-menu-item" onclick="window.location.href='pages/wheel.html'">
-                    <i class="material-symbols-outlined">casino</i>
-                    <span>Колесо удачи</span>
-                </div>
-                
-                <div class="side-menu-divider"></div>
-                
-                <div class="side-menu-item" onclick="handleMenuClick('Выбираем вместе')">
-                    <i class="material-symbols-outlined">how_to_vote</i>
-                    <span>Выбираем вместе</span>
-                </div>
-                <div class="side-menu-item" onclick="handleMenuClick('Создаём чат')">
-                    <i class="material-symbols-outlined">add_comment</i>
-                    <span>Создаём чат</span>
-                </div>
-                <div class="side-menu-item" onclick="handleMenuClick('Мои чаты')">
-                    <i class="material-symbols-outlined">forum</i>
-                    <span>Мои чаты</span>
-                </div>
-            </nav>
+            <div class="user-details">
+                <div class="user-name">Мария Малинина</div>
+                <div class="user-status">Активна сейчас</div>
+            </div>
         </div>
-        <div class="overlay" id="overlay" onclick="toggleSideMenu()"></div>
+    </div>
+    
+    <nav class="side-menu-nav">
+        <div class="side-menu-item" onclick="handleMenuClick('Сообщества')">
+            <i class="material-symbols-outlined">groups</i>
+            <span>Сообщества</span>
+        </div>
+        <div class="side-menu-item" onclick="handleMenuClick('Чаты')">
+            <i class="material-symbols-outlined">chat</i>
+            <span>Чаты</span>
+        </div>
+        
+        <div class="side-menu-divider"></div>
+        
+        <div class="side-menu-item" onclick="window.location.href='pages/challenges.html'">
+            <i class="material-symbols-outlined">emoji_events</i>
+            <span>Челленджи</span>
+        </div>
+        <div class="side-menu-item" onclick="window.location.href='pages/challenges.html?tab=my'">
+            <i class="material-symbols-outlined">task_alt</i>
+            <span>Мои челленджи</span>
+        </div>
+        
+        <div class="side-menu-divider"></div>
+        
+        <div class="side-menu-item" onclick="window.location.href='pages/wheel.html'">
+            <i class="material-symbols-outlined">casino</i>
+            <span>Колесо удачи</span>
+        </div>
+        
+        <div class="side-menu-divider"></div>
+        
+        <div class="side-menu-item" onclick="handleMenuClick('Мои чаты')">
+            <i class="material-symbols-outlined">forum</i>
+            <span>Мои чаты</span>
+        </div>
+    </nav>
+</div>
+<div class="overlay" id="overlay" onclick="toggleSideMenu()"></div>
 
         <!-- Контент -->
         <main class="content-scroll">
@@ -228,37 +213,37 @@
             </div>
         </div>
 
-<!-- Модальное окно ежедневного бонуса -->
-<div class="daily-bonus-modal" id="dailyBonusModal">
-    <div class="daily-bonus-content">
-        <div class="daily-bonus-icon">
-            <i class="material-symbols-outlined">emoji_events</i>
-        </div>
-        <h3>Вы заходили в "СвойКруг" 5 дней подряд!</h3>
-        <p class="daily-bonus-subtitle">Это потрясающая вовлечённость!</p>
-        
-        <p class="daily-bonus-reward-title">Ваши старания вознаграждены:</p>
-        
-        <div class="daily-bonus-rewards">
-            <div class="daily-bonus-reward-item">
-                <div style="width: 40px; display: flex; justify-content: center;">
-                    <img src="images/violetcrystal.png" style="width: 28px; height: 28px;" alt="violet">
+        <!-- Модальное окно ежедневного бонуса -->
+        <div class="daily-bonus-modal" id="dailyBonusModal">
+            <div class="daily-bonus-content">
+                <div class="daily-bonus-icon">
+                    <i class="material-symbols-outlined">emoji_events</i>
                 </div>
-                <div style="width: 80px; font-size: 20px; font-weight: 700;">+100</div>
-            </div>
-            <div class="daily-bonus-reward-item">
-                <div style="width: 40px; display: flex; justify-content: center;">
-                    <img src="images/orangecrystal.png" style="width: 22px; height: 22px;" alt="orange">
+                <h3>Вы заходили в "СвойКруг" 5 дней подряд!</h3>
+                <p class="daily-bonus-subtitle">Это потрясающая вовлечённость!</p>
+                
+                <p class="daily-bonus-reward-title">Ваши старания вознаграждены:</p>
+                
+                <div class="daily-bonus-rewards">
+                    <div class="daily-bonus-reward-item">
+                        <div style="width: 40px; display: flex; justify-content: center;">
+                            <img src="images/violetcrystal.png" style="width: 28px; height: 28px;" alt="violet">
+                        </div>
+                        <div style="width: 80px; font-size: 20px; font-weight: 700;">+100</div>
+                    </div>
+                    <div class="daily-bonus-reward-item">
+                        <div style="width: 40px; display: flex; justify-content: center;">
+                            <img src="images/orangecrystal.png" style="width: 22px; height: 22px;" alt="orange">
+                        </div>
+                        <div style="width: 80px; font-size: 20px; font-weight: 700;">+250</div>
+                    </div>
                 </div>
-                <div style="width: 80px; font-size: 20px; font-weight: 700;">+250</div>
+                
+                <p class="daily-bonus-footer">Продолжайте в том же духе, новые награды уже ждут впереди!</p>
+                
+                <button class="daily-bonus-btn" onclick="closeDailyBonusModal()">Отлично, продолжаем! →</button>
             </div>
         </div>
-        
-        <p class="daily-bonus-footer">Продолжайте в том же духе, новые награды уже ждут впереди!</p>
-        
-        <button class="daily-bonus-btn" onclick="closeDailyBonusModal()">Отлично, продолжаем! →</button>
-    </div>
-</div>
 
         <!-- Нижняя навигация (без подписей) -->
         <footer class="bottom-nav-icons">
@@ -335,11 +320,19 @@
             window.location.href = 'pages/profile.html';
         }
 
+        // Показываем уведомление только один раз
         function showDailyBonusModal() {
+            const hasSeenBonus = localStorage.getItem('daily_bonus_seen');
+            
+            if (hasSeenBonus) {
+                return;
+            }
+            
             const modal = document.getElementById('dailyBonusModal');
             if (modal) {
                 modal.classList.add('show');
                 document.body.style.overflow = 'hidden';
+                localStorage.setItem('daily_bonus_seen', 'true');
             }
         }
 
@@ -364,7 +357,7 @@
             });
         });
 
-        // Показываем уведомление при загрузке страницы
+        // Показываем уведомление при загрузке страницы (только один раз)
         document.addEventListener('DOMContentLoaded', () => {
             showDailyBonusModal();
         });

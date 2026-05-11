@@ -4,7 +4,7 @@
     padding-bottom: 100px;
 }
 
-/* Градиентная шапка */
+/* Шапка */
 .challenge-detail-header {
     padding: 28px 24px;
     border-radius: 28px;
@@ -12,16 +12,26 @@
     color: white;
 }
 
+/* Гастрономический тур — оранжевый фон */
+.challenge-detail-header.orange-gastro {
+    background: #E67E22;
+}
+/* Искатели красоты — фиолетовый фон */
+.challenge-detail-header.purple-beauty {
+    background: #9C27B0;
+}
+
+/* Другие шапки (если понадобятся) */
 .challenge-detail-header.pink-purple {
-    background: linear-gradient(135deg, #F41D91, #9C27B0);
+    background: linear-gradient(135deg, #E91E63, #9C27B0);
 }
 
 .challenge-detail-header.orange-pink {
-    background: linear-gradient(135deg, #F2711E, #F41D91);
+    background: linear-gradient(135deg, #E67E22, #E91E63);
 }
 
 .challenge-detail-header.orange-purple {
-    background: linear-gradient(135deg, #F2711E, #9C27B0);
+    background: linear-gradient(135deg, #E67E22, #9C27B0);
 }
 
 .challenge-detail-header h2 {
@@ -46,12 +56,12 @@
     align-items: center;
     gap: 14px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(244, 29, 145, 0.1);
+    border: 1px solid rgba(233, 30, 99, 0.1);
 }
 
 .time-icon i {
     font-size: 32px;
-    color: #F41D91;
+    color: #E91E63;
 }
 
 .time-info {
@@ -79,7 +89,7 @@
     padding: 20px;
     margin-bottom: 24px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(244, 29, 145, 0.1);
+    border: 1px solid rgba(233, 30, 99, 0.1);
 }
 
 .progress-header {
@@ -92,13 +102,13 @@
 
 .progress-tasks {
     font-weight: 600;
-    color: #F41D91;
+    color: #E91E63;
     margin-left: 6px;
 }
 
 .progress-percent {
     font-weight: 700;
-    color: #F41D91;
+    color: #E91E63;
 }
 
 .progress-bar-container {
@@ -110,7 +120,7 @@
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #F41D91, #F2711E);
+    background: linear-gradient(90deg, #E91E63, #E67E22);
     border-radius: 10px;
     transition: width 0.3s ease;
 }
@@ -122,7 +132,7 @@
     padding: 20px;
     margin-bottom: 24px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(244, 29, 145, 0.1);
+    border: 1px solid rgba(233, 30, 99, 0.1);
 }
 
 .rewards-header {
@@ -134,12 +144,12 @@
 
 .rewards-trophy-icon {
     font-size: 28px !important;
-    color: #F41D91 !important;
+    color: #E91E63 !important;
 }
 
 .rewards-section h3 {
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 800;
     color: #1a1a1a;
     margin: 0;
 }
@@ -147,59 +157,53 @@
 .rewards-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
 }
 
 .reward-item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 8px 0;
+    gap: 14px;
+    padding: 6px 0;
 }
 
 .reward-item i {
-    font-size: 24px;
+    font-size: 28px;
 }
 
 .reward-item i:first-child {
-    color: #F41D91;
+    color: #E91E63;
 }
 
+/* ТЕКСТ НАГРАД — ТЕМНО-СЕРЫЙ */
 .reward-item span {
-    font-size: 14px;
-    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+    color: #555;
 }
 
 .reward-points {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
-.crystal-large {
-    color: #D500F9 !important;
-    background: none !important;
-    font-weight: 800 !important;
-    font-size: 52px !important;
-    display: inline-block !important;
-    text-shadow: 0 0 3px rgba(213, 0, 249, 0.4) !important;
-    margin-left: 8px !important;
-    line-height: 1 !important;
-}
-
-.reward-points {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.reward-points span {
-    color: #333;
+/* Крупный кристалл */
+.crystal-large-img {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-image: url('../images/violetcrystal.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+    margin-left: 8px;
 }
 
 /* Для иконки бриллианта */
 .reward-item i.material-symbols-outlined {
-    color: #F41D91;
+    color: #E91E63;
 }
 
 /* Как участвовать */
@@ -209,7 +213,7 @@
     padding: 20px;
     margin-bottom: 24px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(244, 29, 145, 0.1);
+    border: 1px solid rgba(233, 30, 99, 0.1);
 }
 
 .how-to-participate h3 {
@@ -234,7 +238,7 @@
 .step-number {
     width: 28px;
     height: 28px;
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -261,13 +265,13 @@
     margin: 0 auto;
     padding: 16px 20px;
     background: white;
-    border-top: 1px solid rgba(244, 29, 145, 0.1);
+    border-top: 1px solid rgba(233, 30, 99, 0.1);
     z-index: 100;
 }
 
 .participate-btn {
     width: 100%;
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     border: none;
     padding: 16px;
     border-radius: 60px;
@@ -287,7 +291,7 @@
 .back-button {
     cursor: pointer;
     font-size: 24px;
-    color: #F41D91;
+    color: #E91E63;
     width: 32px;
     height: 32px;
     display: flex;
@@ -314,8 +318,9 @@
         font-size: 14px;
     }
     
-    .crystal-large {
-        font-size: 36px !important;
+    .crystal-large-img {
+        width: 32px;
+        height: 32px;
     }
 }
 
@@ -348,14 +353,14 @@
     margin: 0;
 }
 
-/* Задания - ОБНОВЛЕННЫЕ С УВЕЛИЧЕННЫМИ ЦИФРАМИ */
+/* Задания */
 .tasks-section {
     background: white;
     border-radius: 20px;
     padding: 20px;
     margin-bottom: 24px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(244, 29, 145, 0.1);
+    border: 1px solid rgba(233, 30, 99, 0.1);
 }
 
 .tasks-section h3 {
@@ -406,7 +411,7 @@
 .task-download-btn {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     border-radius: 30px;
     display: flex;
     align-items: center;
@@ -426,7 +431,7 @@
 /* Кнопка "Вы участвуете" */
 .participating-btn {
     width: 100%;
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     border: none;
     padding: 16px;
     border-radius: 60px;
@@ -476,21 +481,20 @@
     align-items: center;
     gap: 6px;
     font-size: 13px;
-    color: #F41D91;
+    color: #E91E63;
     margin-bottom: 6px;
 }
 
 .task-location i {
     font-size: 16px;
-    color: #F41D91;
+    color: #E91E63;
 }
 
 /* ========== ПОСЛЕДОВАТЕЛЬНЫЕ ЗАДАНИЯ (ДЛЯ ИСКАТЕЛИ КРАСОТЫ) ========== */
-/* Номера заданий в кружках - УВЕЛИЧЕНЫ */
 .task-number {
     width: 48px;
     height: 48px;
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -499,7 +503,7 @@
     font-weight: 800;
     font-size: 22px;
     flex-shrink: 0;
-    box-shadow: 0 2px 8px rgba(244, 29, 145, 0.3);
+    box-shadow: 0 2px 8px rgba(233, 30, 99, 0.3);
 }
 
 .task-item-sequential.completed .task-number {
@@ -511,7 +515,6 @@
     box-shadow: none;
 }
 
-/* Названия заданий - УВЕЛИЧЕНЫ */
 .task-name-large {
     font-size: 18px;
     font-weight: 700;
@@ -523,7 +526,6 @@
     gap: 8px;
 }
 
-/* Карточки последовательных заданий */
 .tasks-list-sequential {
     display: flex;
     flex-direction: column;
@@ -541,8 +543,8 @@
 }
 
 .task-item-sequential.available {
-    background: linear-gradient(135deg, rgba(244, 29, 145, 0.1), rgba(242, 113, 30, 0.05));
-    border: 1px solid #F41D91;
+    background: linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(230, 126, 34, 0.05));
+    border: 1px solid #E91E63;
     cursor: pointer;
 }
 
@@ -586,7 +588,6 @@
     font-size: 28px;
 }
 
-/* Бейджи */
 .completed-badge {
     background: #4CAF50;
     color: white;
@@ -606,7 +607,7 @@
 }
 
 .available-badge {
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     color: white;
     font-size: 11px;
     font-weight: 600;
@@ -632,7 +633,7 @@
 
 .task-minimal-card.available {
     background: linear-gradient(135deg, #fff, #fef9ff);
-    border-color: #F41D91;
+    border-color: #E91E63;
     cursor: pointer;
 }
 
@@ -686,7 +687,7 @@
 
 .task-minimal-status {
     font-size: 12px;
-    color: #F41D91;
+    color: #E91E63;
 }
 
 .task-minimal-card.locked .task-minimal-status {
@@ -698,14 +699,13 @@
 }
 
 /* Карта-путь */
-/* Карта-путь */
 .map-section {
     background: white;
     border-radius: 24px;
     padding: 16px;
     margin-bottom: 24px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(244, 29, 145, 0.1);
+    border: 1px solid rgba(233, 30, 99, 0.1);
 }
 
 .map-section h3 {
@@ -757,14 +757,14 @@
     margin-bottom: 24px;
 }
 
-/* Розовая дымка */
+/* ФИРМЕННАЯ ДЫМКА — градиент розовый → оранжевый, без эмодзи */
 .fog-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(244, 29, 145, 0.15);
+    background: linear-gradient(135deg, rgba(233, 30, 99, 0.15), rgba(230, 126, 34, 0.15));
     backdrop-filter: blur(4px);
     border-radius: 24px;
     display: flex;
@@ -775,21 +775,16 @@
 
 .congrats-overlay {
     text-align: center;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 28px;
     padding: 24px 32px;
-    box-shadow: 0 4px 20px rgba(244, 29, 145, 0.2);
-}
-
-.congrats-overlay .congrats-icon {
-    font-size: 48px;
-    margin-bottom: 12px;
+    box-shadow: 0 4px 20px rgba(233, 30, 99, 0.2);
 }
 
 .congrats-overlay h3 {
     font-size: 22px;
     font-weight: 800;
-    color: #F41D91;
+    color: #E91E63;
     margin-bottom: 8px;
 }
 
@@ -798,7 +793,7 @@
     color: #666;
 }
 
-/* Модальное окно награды */
+/* Модальное окно награды — кнопка в фирменном стиле */
 .reward-modal {
     display: none;
     position: fixed;
@@ -848,12 +843,12 @@
 }
 
 .reward-modal-close:hover {
-    color: #F41D91;
+    color: #E91E63;
 }
 
 .reward-modal-icon i {
     font-size: 64px;
-    color: #F41D91;
+    color: #E91E63;
     margin-bottom: 16px;
 }
 
@@ -865,8 +860,9 @@
     line-height: 1.4;
 }
 
+/* Кнопка "Забрать награду" — фирменный стиль, с кубком */
 .reward-modal-btn {
-    background: linear-gradient(135deg, #F41D91, #F2711E);
+    background: linear-gradient(135deg, #E91E63, #E67E22);
     border: none;
     padding: 14px 24px;
     border-radius: 40px;
@@ -877,6 +873,10 @@
     cursor: pointer;
     transition: transform 0.2s;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .reward-modal-btn:active {
@@ -898,8 +898,8 @@
 
 /* Крупный фиолетовый кристалл */
 .crystal-large-img {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     display: inline-block;
     background-image: url('../images/violetcrystal.png');
     background-size: contain;
@@ -909,7 +909,7 @@
     margin-left: 8px;
 }
 
-/* Адаптация для мобильных устройств - увеличенные элементы */
+/* Адаптация для мобильных устройств */
 @media (max-width: 480px) {
     .task-number {
         width: 40px;
@@ -928,5 +928,10 @@
     .task-item-sequential {
         padding: 14px;
         gap: 14px;
+    }
+    
+    .crystal-large-img {
+        width: 32px;
+        height: 32px;
     }
 }

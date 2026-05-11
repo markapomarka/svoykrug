@@ -37,22 +37,27 @@
                 </div>
             </div>
 
-            <div class="spin-section">
-                <button class="spin-btn" id="spinBtn" onclick="spinWheel()">Крутить колесо</button>
-                <div class="spin-cost">Стоимость: 300 <span class="crystal-orange"></span></div>
+            <!-- Две кнопки: бесплатная крутка и платная -->
+            <div class="spin-buttons">
+                <button class="spin-btn-free" id="spinBtnFree" onclick="spinWheelFree()">
+                    <i class="material-symbols-outlined">casino</i>
+                    Бесплатная крутка
+                </button>
+                <button class="spin-btn-paid" id="spinBtnPaid" onclick="spinWheelPaid()">
+                    Крутить за 300 <span class="crystal-orange"></span>
+                </button>
             </div>
-
         </main>
 
-        <div class="result-modal" id="resultModal">
-            <div class="result-modal-content">
-                <div class="result-modal-close" onclick="closeResultModal()">✕</div>
-                <div class="result-icon" id="resultIcon">🎉</div>
-                <h3 id="resultTitle">Поздравляем!</h3>
-                <p id="resultMessage">Вы выиграли 500 ◆</p>
-                <button class="result-btn" onclick="closeResultModal()">Отлично!</button>
-            </div>
-        </div>
+<div class="result-modal" id="resultModal">
+    <div class="result-modal-content">
+        <div class="result-modal-close" onclick="closeResultModal()">✕</div>
+        <div class="result-icon" id="resultIcon" style="display: none;">🎉</div>
+        <h3 id="resultTitle">Поздравляем!</h3>
+        <p id="resultMessage">Вы выиграли 500 ◆</p>
+        <button class="result-btn" onclick="closeResultModal()">Отлично!</button>
+    </div>
+</div>
 
         <div class="topup-modal" id="topupModal">
             <div class="topup-modal-content">

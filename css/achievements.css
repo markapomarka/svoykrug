@@ -11,7 +11,7 @@
     padding: 20px;
     margin-bottom: 24px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(244, 29, 145, 0.1);
+    border: 1px solid rgba(233, 30, 99, 0.1);
 }
 
 .progress-header {
@@ -30,7 +30,7 @@
 .progress-value {
     font-size: 16px;
     font-weight: 600;
-    color: #F41D91;
+    color: #E91E63;
 }
 
 .progress-bar-container {
@@ -43,7 +43,7 @@
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #F41D91, #F2711E);
+    background: linear-gradient(90deg, #E91E63, #E67E22);
     border-radius: 10px;
     transition: width 0.3s ease;
 }
@@ -76,13 +76,13 @@
     border-radius: 20px;
     padding: 20px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(244, 29, 145, 0.1);
+    border: 1px solid rgba(233, 30, 99, 0.1);
     transition: all 0.2s;
 }
 
 .achievement-item.completed {
-    background: linear-gradient(135deg, rgba(244, 29, 145, 0.08), rgba(242, 113, 30, 0.04));
-    border-left: 4px solid #F41D91;
+    background: linear-gradient(135deg, rgba(233, 30, 99, 0.08), rgba(230, 126, 34, 0.04));
+    border-left: 4px solid #E91E63;
 }
 
 .achievement-item.locked {
@@ -104,7 +104,7 @@
 
 .achievement-icon i {
     font-size: 40px;
-    color: #F41D91;
+    color: #E91E63;
 }
 
 .achievement-content {
@@ -130,7 +130,7 @@
 }
 
 .achievement-check i {
-    color: #F41D91;
+    color: #E91E63;
 }
 
 .achievement-lock i {
@@ -141,19 +141,19 @@
 .new-achievements-text {
     text-align: center;
     font-size: 14px;
-    color: #F41D91;
+    color: #E91E63;
     padding: 20px;
     background: white;
     border-radius: 20px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(244, 29, 145, 0.1);
+    border: 1px solid rgba(233, 30, 99, 0.1);
 }
 
 /* Кнопка назад */
 .back-button {
     cursor: pointer;
     font-size: 24px;
-    color: #F41D91;
+    color: #E91E63;
     width: 32px;
     height: 32px;
     display: flex;
@@ -194,18 +194,6 @@
     margin-left: 4px;
 }
 
-.crystal-reward {
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-    background-image: url('../images/violetcrystal.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    vertical-align: middle;
-}
-
-/* Для бонусов в тексте */
 .crystal-icon-img {
     width: 16px;
     height: 16px;

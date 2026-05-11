@@ -20,7 +20,8 @@
         </header>
 
         <main class="content-scroll">
-            <div class="challenge-detail-header pink-purple">
+            <!-- Шапка — фиолетовый фон, без градиента -->
+            <div class="challenge-detail-header purple-beauty">
                 <h2>Искатели красоты</h2>
                 <p>Погрузись в атмосферу творческого Петербурга и открой уникальные стороны Брусницына Лофта в нашем квесте «Искатели красоты». Отправься в увлекательную прогулку по основным локациям комплекса: попробуй местное кофе, посмотри работы handmade-мастеров, займись созданием керамики и сделай яркие снимки в фотозонах!</p>
             </div>
@@ -119,7 +120,7 @@
         }
 
         function participateInChallenge() {
-            // СОХРАНЯЕМ ИНФОРМАЦИЮ ОБ УЧАСТИИ
+            // Сохраняем информацию об участии
             localStorage.setItem('beauty_challenge_joined', 'true');
             localStorage.setItem('beauty_challenge_progress', JSON.stringify({ completedTasks: 0, totalTasks: 5 }));
             

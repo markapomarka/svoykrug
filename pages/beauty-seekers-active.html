@@ -20,11 +20,6 @@
         </header>
 
         <main class="content-scroll">
-            <div class="challenge-detail-header pink-purple">
-                <h2>Искатели красоты</h2>
-                <p>Погрузись в атмосферу творческого Петербурга и открой уникальные стороны Брусницына Лофта в нашем квесте «Искатели красоты». Отправься в увлекательную прогулку по основным локациям комплекса: попробуй местное кофе, посмотри работы handmade-мастеров, займись созданием керамики и сделай яркие снимки в фотозонах!</p>
-            </div>
-
             <div class="time-card">
                 <div class="time-icon">
                     <i class="material-symbols-outlined">schedule</i>
@@ -37,7 +32,7 @@
 
             <div class="progress-section">
                 <div class="progress-header">
-                    <span>Процесс: <span class="progress-tasks" id="progressTasks">0/5</span></span>
+                    <span>Прогресс: <span class="progress-tasks" id="progressTasks">0/5</span></span>
                     <span class="progress-percent" id="progressPercent">0%</span>
                 </div>
                 <div class="progress-bar-container">
@@ -62,61 +57,55 @@
                     <div class="reward-item">
                         <i class="material-symbols-outlined">diamond</i>
                         <span class="reward-points">1000 <span class="crystal-large-img"></span></span>
+                    </div>
                 </div>
             </div>
 
             <div class="map-container" id="mapContainer">
                 <div class="map-section" id="mapSection">
                     <h3>Мои задания</h3>
-<div class="journey-map">
-    <svg class="map-svg" viewBox="0 0 350 480" preserveAspectRatio="xMidYMid meet">
-        <line id="line1" x1="175" y1="45" x2="80" y2="135" stroke="#ddd" stroke-width="2.5" stroke-dasharray="6,6" />
-        <line id="line2" x1="80" y1="135" x2="270" y2="230" stroke="#ddd" stroke-width="2.5" stroke-dasharray="6,6" />
-        <line id="line3" x1="270" y1="230" x2="100" y2="335" stroke="#ddd" stroke-width="2.5" stroke-dasharray="6,6" />
-        <line id="line4" x1="100" y1="335" x2="250" y2="430" stroke="#ddd" stroke-width="2.5" stroke-dasharray="6,6" />
-        
-        <!-- Точка 1 -->
-        <g class="map-node" id="node1" onclick="showTaskDetail(1)" style="cursor: pointer;">
-            <circle cx="175" cy="45" r="28" fill="#ddd" stroke="#fff" stroke-width="2.5" />
-            <text x="175" y="52" text-anchor="middle" fill="#999" font-size="15" font-weight="bold">1</text>
-            <text x="175" y="88" text-anchor="middle" fill="#999" font-size="12">Арт-встреча</text>
-        </g>
-        
-        <!-- Точка 2 -->
-        <g class="map-node" id="node2" onclick="showTaskDetail(2)" style="cursor: pointer;">
-            <circle cx="80" cy="135" r="28" fill="#ddd" stroke="#fff" stroke-width="2.5" />
-            <text x="80" y="142" text-anchor="middle" fill="#999" font-size="15" font-weight="bold">2</text>
-            <text x="80" y="178" text-anchor="middle" fill="#999" font-size="12">Кофе-брейк</text>
-        </g>
-        
-        <!-- Точка 3 -->
-        <g class="map-node" id="node3" onclick="showTaskDetail(3)" style="cursor: pointer;">
-            <circle cx="270" cy="230" r="28" fill="#ddd" stroke="#fff" stroke-width="2.5" />
-            <text x="270" y="237" text-anchor="middle" fill="#999" font-size="15" font-weight="bold">3</text>
-            <text x="270" y="273" text-anchor="middle" fill="#999" font-size="12">Мастера рукоделия</text>
-        </g>
-        
-        <!-- Точка 4 -->
-        <g class="map-node" id="node4" onclick="showTaskDetail(4)" style="cursor: pointer;">
-            <circle cx="100" cy="335" r="28" fill="#ddd" stroke="#fff" stroke-width="2.5" />
-            <text x="100" y="342" text-anchor="middle" fill="#999" font-size="15" font-weight="bold">4</text>
-            <text x="100" y="378" text-anchor="middle" fill="#999" font-size="12">Творческая студия</text>
-        </g>
-        
-        <!-- Точка 5 -->
-        <g class="map-node" id="node5" onclick="showTaskDetail(5)" style="cursor: pointer;">
-            <circle cx="250" cy="430" r="28" fill="#ddd" stroke="#fff" stroke-width="2.5" />
-            <text x="250" y="437" text-anchor="middle" fill="#999" font-size="15" font-weight="bold">5</text>
-            <text x="250" y="473" text-anchor="middle" fill="#999" font-size="12">Фото-флешмоб</text>
-        </g>
-    </svg>
-</div>
+                    <div class="journey-map">
+                        <svg class="map-svg" viewBox="0 0 350 480" preserveAspectRatio="xMidYMid meet">
+                            <line id="line1" x1="175" y1="45" x2="80" y2="135" stroke="#ddd" stroke-width="2.5" stroke-dasharray="6,6" />
+                            <line id="line2" x1="80" y1="135" x2="270" y2="230" stroke="#ddd" stroke-width="2.5" stroke-dasharray="6,6" />
+                            <line id="line3" x1="270" y1="230" x2="100" y2="335" stroke="#ddd" stroke-width="2.5" stroke-dasharray="6,6" />
+                            <line id="line4" x1="100" y1="335" x2="250" y2="430" stroke="#ddd" stroke-width="2.5" stroke-dasharray="6,6" />
+                            
+                            <g class="map-node" id="node1" onclick="showTaskDetail(1)" style="cursor: pointer;">
+                                <circle cx="175" cy="45" r="28" fill="#ddd" stroke="#fff" stroke-width="2.5" />
+                                <text x="175" y="52" text-anchor="middle" fill="#999" font-size="15" font-weight="bold">1</text>
+                                <text x="175" y="88" text-anchor="middle" fill="#999" font-size="12">Арт-встреча</text>
+                            </g>
+                            
+                            <g class="map-node" id="node2" onclick="showTaskDetail(2)" style="cursor: pointer;">
+                                <circle cx="80" cy="135" r="28" fill="#ddd" stroke="#fff" stroke-width="2.5" />
+                                <text x="80" y="142" text-anchor="middle" fill="#999" font-size="15" font-weight="bold">2</text>
+                                <text x="80" y="178" text-anchor="middle" fill="#999" font-size="12">Кофе-брейк</text>
+                            </g>
+                            
+                            <g class="map-node" id="node3" onclick="showTaskDetail(3)" style="cursor: pointer;">
+                                <circle cx="270" cy="230" r="28" fill="#ddd" stroke="#fff" stroke-width="2.5" />
+                                <text x="270" y="237" text-anchor="middle" fill="#999" font-size="15" font-weight="bold">3</text>
+                                <text x="270" y="273" text-anchor="middle" fill="#999" font-size="12">Мастера рукоделия</text>
+                            </g>
+                            
+                            <g class="map-node" id="node4" onclick="showTaskDetail(4)" style="cursor: pointer;">
+                                <circle cx="100" cy="335" r="28" fill="#ddd" stroke="#fff" stroke-width="2.5" />
+                                <text x="100" y="342" text-anchor="middle" fill="#999" font-size="15" font-weight="bold">4</text>
+                                <text x="100" y="378" text-anchor="middle" fill="#999" font-size="12">Творческая студия</text>
+                            </g>
+                            
+                            <g class="map-node" id="node5" onclick="showTaskDetail(5)" style="cursor: pointer;">
+                                <circle cx="250" cy="430" r="28" fill="#ddd" stroke="#fff" stroke-width="2.5" />
+                                <text x="250" y="437" text-anchor="middle" fill="#999" font-size="15" font-weight="bold">5</text>
+                                <text x="250" y="473" text-anchor="middle" fill="#999" font-size="12">Фото-флешмоб</text>
+                            </g>
+                        </svg>
                     </div>
                 </div>
                 
                 <div class="fog-overlay" id="fogOverlay" style="display: none;">
                     <div class="congrats-overlay">
-                        <div class="congrats-icon">🎉</div>
                         <h3>Поздравляем!</h3>
                         <p>Вы завершили квест!</p>
                     </div>
@@ -138,7 +127,9 @@
                     <i class="material-symbols-outlined">emoji_events</i>
                 </div>
                 <h3>Награды успешно добавлены в Профиль!</h3>
-                <button class="reward-modal-btn" onclick="goToProfile()">Посмотреть профиль</button>
+                <button class="reward-modal-btn" onclick="goToProfile()">
+                    Посмотреть профиль
+                </button>
             </div>
         </div>
     </div>
@@ -219,9 +210,9 @@
                     text.setAttribute('fill', 'white');
                     if (label) label.setAttribute('fill', '#4CAF50');
                 } else if (i === completedCount + 1) {
-                    circle.setAttribute('fill', '#F41D91');
+                    circle.setAttribute('fill', '#9C27B0');
                     text.setAttribute('fill', 'white');
-                    if (label) label.setAttribute('fill', '#F41D91');
+                    if (label) label.setAttribute('fill', '#9C27B0');
                 } else {
                     circle.setAttribute('fill', '#ddd');
                     text.setAttribute('fill', '#999');
@@ -250,10 +241,10 @@
                 actionBtn.disabled = true;
                 actionBtn.style.opacity = '0.6';
             } else {
-                actionBtn.innerHTML = '<i class="material-symbols-outlined">card_giftcard</i> Забрать награду';
+                actionBtn.innerHTML = '<i class="material-symbols-outlined">emoji_events</i> Забрать награду';
                 actionBtn.disabled = false;
                 actionBtn.style.opacity = '1';
-                actionBtn.style.background = 'linear-gradient(135deg, #F41D91, #F2711E)';
+                actionBtn.style.background = 'linear-gradient(135deg, #E91E63, #E67E22)';
                 actionBtn.onclick = claimReward;
             }
         }
@@ -263,37 +254,78 @@
             modal.classList.add('show');
         }
 
+        function saveRewardToProfile() {
+            // Получаем существующие награды
+            let rewards = JSON.parse(localStorage.getItem('user_rewards') || '[]');
+            
+            // Проверяем, не добавлена ли уже эта награда
+            const alreadyExists = rewards.some(r => r.title === "Скидка 15% в мастерской 'Талант'");
+            
+            if (!alreadyExists) {
+                const newReward = {
+                    id: Date.now(),
+                    title: "Скидка 15% в мастерской 'Талант'",
+                    date: "До 22.03.2026",
+                    tag: "Челлендж",
+                    isNew: true,
+                    icon: "local_offer",
+                    used: false
+                };
+                rewards.push(newReward);
+                localStorage.setItem('user_rewards', JSON.stringify(rewards));
+                console.log('✅ Награда сохранена:', newReward);
+            } else {
+                console.log('ℹ️ Награда уже существует');
+            }
+        }
+
+        function markAchievementAsNew() {
+            // Сохраняем ID достижения "Исследователь"
+            // Важно: используем конкретный ID достижения, а не позицию в DOM
+            localStorage.setItem('new_achievement_researcher', 'true');
+            localStorage.setItem('achievement_researcher_new', Date.now().toString());
+            console.log('✅ Достижение "Исследователь" отмечено как новое');
+            
+            // Для проверки - выводим все новые достижения
+            console.log('Все новые достижения:', {
+                researcher: localStorage.getItem('new_achievement_researcher'),
+                timestamp: localStorage.getItem('achievement_researcher_new')
+            });
+        }
+
         function closeRewardModal() {
             const modal = document.getElementById('rewardModal');
             modal.classList.remove('show');
             
+            // Сохраняем все награды
+            saveRewardToProfile();
+            markAchievementAsNew();
+            
+            // Отмечаем, что награда получена
             isRewardClaimed = true;
             localStorage.setItem('beauty_challenge_reward_claimed', 'true');
-            
-            // Отмечаем челлендж как завершенный в localStorage
             localStorage.setItem('beauty_challenge_completed', 'true');
             
+            // Обновляем кнопку
             const actionBtn = document.getElementById('actionBtn');
             actionBtn.innerHTML = '<i class="material-symbols-outlined">check_circle</i> Награда получена';
             actionBtn.disabled = true;
             actionBtn.style.opacity = '0.6';
             actionBtn.onclick = null;
-            
-            // Переходим на страницу "Мои челленджи"
-            window.location.href = 'challenges.html?tab=my';
         }
 
         function goToProfile() {
-            // Сохраняем, что награда получена
+            // Сохраняем все перед переходом
+            saveRewardToProfile();
+            markAchievementAsNew();
+            
             isRewardClaimed = true;
             localStorage.setItem('beauty_challenge_reward_claimed', 'true');
             localStorage.setItem('beauty_challenge_completed', 'true');
             
-            // Закрываем модальное окно
             const modal = document.getElementById('rewardModal');
             modal.classList.remove('show');
             
-            // Переходим в профиль
             window.location.href = 'profile.html';
         }
 
